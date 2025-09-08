@@ -63,25 +63,57 @@ def main():
         
         logger.info(f"✅ Feature-1 completed: Generated {len(cccd_data)} CCCD records")
         
-        # Feature-6: Excel Export
-        logger.info("📊 Starting Feature-6: Excel Export")
+        # Feature-2: Data Lookup (Tra cứu dữ liệu thực tế)
+        logger.info("🔍 Starting Feature-2: Data Lookup")
+        from src.modules.core.data_lookup import DataLookupService
+        
+        lookup_service = DataLookupService(config)
+        
+        # Lấy danh sách CCCD để tra cứu
+        cccd_list = [cccd_item.cccd for cccd_item in cccd_data]
+        
+        # Thực hiện tra cứu hàng loạt (giới hạn 100 để test)
+        test_cccd_list = cccd_list[:100]  # Test với 100 CCCD đầu tiên
+        logger.info(f"🔍 Performing lookup for {len(test_cccd_list)} CCCD records")
+        
+        lookup_results = lookup_service.batch_lookup(test_cccd_list)
+        
+        # Lưu kết quả tra cứu
+        lookup_service.save_results(lookup_results, 'output/lookup_results.json')
+        
+        logger.info(f"✅ Feature-2 completed: Lookup completed for {len(lookup_results)} records")
+        
+        # Feature-6: Excel Export với dữ liệu thực tế
+        logger.info("📊 Starting Feature-6: Excel Export with Real Data")
         from src.modules.core.excel_exporter import ExcelExporter
         
         excel_exporter = ExcelExporter(config)
         
-        # Convert CCCD data to format suitable for Excel
+        # Convert CCCD data và lookup results to format suitable for Excel
         excel_data = []
+        lookup_dict = {result.cccd: result for result in lookup_results}
+        
         for i, cccd_item in enumerate(cccd_data, 1):
+            # Lấy thông tin tra cứu nếu có
+            lookup_result = lookup_dict.get(cccd_item.cccd)
+            
             excel_data.append({
                 'STT': i,
                 'CCCD': cccd_item.cccd,
                 'Họ và tên': cccd_item.full_name,
                 'Ngày sinh': cccd_item.birth_date,
                 'Địa chỉ': cccd_item.address,
-                'Mã BHXH': f'BHXH{i:06d}',  # Generate BHXH code
-                'Ngành nghề': 'Kinh doanh',  # Default value
-                'Doanh thu': 0,  # Default value
-                'Ghi chú': 'Hoạt động bình thường'  # Default value
+                'Mã số thuế': lookup_result.tax_code if lookup_result else None,
+                'Tên công ty': lookup_result.company_name if lookup_result else None,
+                'Người đại diện': lookup_result.representative if lookup_result else None,
+                'Mã BHXH': lookup_result.bhxh_code if lookup_result else f'BHXH{i:06d}',
+                'Loại hình DN': lookup_result.business_type if lookup_result else 'Chưa xác định',
+                'Trạng thái': lookup_result.business_status if lookup_result else 'Chưa tra cứu',
+                'Ngày đăng ký': lookup_result.registration_date if lookup_result else None,
+                'Số điện thoại': lookup_result.phone if lookup_result else None,
+                'Email': lookup_result.email if lookup_result else None,
+                'Trạng thái tra cứu': lookup_result.status if lookup_result else 'Chưa tra cứu',
+                'Nguồn dữ liệu': lookup_result.source if lookup_result else 'Generated'
             })
         
         # Export to Excel
@@ -99,9 +131,11 @@ def main():
         
         logger.info("✅ System completed successfully")
         logger.info(f"📊 Total records processed: {len(cccd_data)}")
+        logger.info(f"🔍 Records with lookup data: {len(lookup_results)}")
         logger.info(f"📁 Output files:")
-        logger.info(f"  - {config['output_file']} (Excel)")
+        logger.info(f"  - {config['output_file']} (Excel with real data)")
         logger.info(f"  - output/cccd_data.txt (CCCD data)")
+        logger.info(f"  - output/lookup_results.json (Lookup results)")
         logger.info(f"  - output/summary_report.txt (Summary)")
         
     except Exception as e:
