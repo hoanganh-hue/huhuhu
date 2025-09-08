@@ -14,7 +14,11 @@ pandas==2.1.4
 # HTTP requests - Gửi HTTP requests
 requests==2.31.0
 urllib3==2.0.7
-httpx==0.28.1
+httpx[socks]==0.28.1
+
+# Module 7 - Advanced API Client dependencies
+faker==26.0.0
+proxybroker==0.5.2
 
 # Data processing - Xử lý dữ liệu
 json5==0.9.14

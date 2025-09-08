@@ -1,0 +1,85 @@
+{
+  "test_info": {
+    "test_date": "2025-09-08T10:29:53.161711",
+    "module": "module_7_advanced_api_client",
+    "total_cccds": 5,
+    "test_cccds": [
+      "001087016369",
+      "001184032114",
+      "001098021288",
+      "001094001628",
+      "036092002342"
+    ]
+  },
+  "summary": {
+    "total_requests": 5,
+    "successful": 0,
+    "blocked": 0,
+    "errors": 5,
+    "proxy_rotations": 5,
+    "total_profiles": 0,
+    "processing_time": 53.182083530002274
+  },
+  "results": [
+    {
+      "cccd": "001087016369",
+      "method": "advanced_api_client",
+      "result": {
+        "status": "error",
+        "status_code": 0,
+        "processing_time": 8.831848621368408,
+        "proxy_used": "47.74.152.29",
+        "retry_count": 3,
+        "error_message": "Unexpected Error: AsyncClient.__init__() got an unexpected keyword argument 'proxies'"
+      }
+    },
+    {
+      "cccd": "001184032114",
+      "method": "advanced_api_client",
+      "result": {
+        "status": "error",
+        "status_code": 0,
+        "processing_time": 7.772077798843384,
+        "proxy_used": "103.152.112.145",
+        "retry_count": 3,
+        "error_message": "Unexpected Error: AsyncClient.__init__() got an unexpected keyword argument 'proxies'"
+      }
+    },
+    {
+      "cccd": "001098021288",
+      "method": "advanced_api_client",
+      "result": {
+        "status": "error",
+        "status_code": 0,
+        "processing_time": 8.070966243743896,
+        "proxy_used": "8.210.83.33",
+        "retry_count": 3,
+        "error_message": "Unexpected Error: AsyncClient.__init__() got an unexpected keyword argument 'proxies'"
+      }
+    },
+    {
+      "cccd": "001094001628",
+      "method": "advanced_api_client",
+      "result": {
+        "status": "error",
+        "status_code": 0,
+        "processing_time": 7.898937463760376,
+        "proxy_used": "47.74.152.29",
+        "retry_count": 3,
+        "error_message": "Unexpected Error: AsyncClient.__init__() got an unexpected keyword argument 'proxies'"
+      }
+    },
+    {
+      "cccd": "036092002342",
+      "method": "advanced_api_client",
+      "result": {
+        "status": "error",
+        "status_code": 0,
+        "processing_time": 8.557447671890259,
+        "proxy_used": "8.210.83.33",
+        "retry_count": 3,
+        "error_message": "Unexpected Error: AsyncClient.__init__() got an unexpected keyword argument 'proxies'"
+      }
+    }
+  ]
+}
