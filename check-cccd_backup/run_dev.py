@@ -38,7 +38,7 @@ def check_dependencies():
         import fastapi
         import uvicorn
         import httpx
-        import beautifulsoup4
+        import bs4
         import lxml
         print("✅ Core dependencies found")
     except ImportError as e:
