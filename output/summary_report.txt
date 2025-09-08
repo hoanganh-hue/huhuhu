@@ -1,7 +1,7 @@
 BÁO CÁO TỔNG KẾT XUẤT DỮ LIỆU
 ==================================================
 
-Ngày xuất: 2025-09-08 12:52:01
+Ngày xuất: 2025-09-08 12:58:27
 Tổng số bản ghi: 1000
 Số cột dữ liệu: 9
 
@@ -30,9 +30,9 @@ Thống kê null values:
 Thống kê unique values:
   STT: 1000
   CCCD: 1000
-  Họ và tên: 942
-  Ngày sinh: 881
-  Địa chỉ: 918
+  Họ và tên: 930
+  Ngày sinh: 875
+  Địa chỉ: 920
   Mã BHXH: 1000
   Ngành nghề: 1
   Doanh thu: 1
