@@ -87,8 +87,9 @@ def main():
         # Lấy danh sách CCCD để tra cứu
         cccd_list = [cccd_item.cccd for cccd_item in cccd_data]
         
-        # Thực hiện tra cứu hàng loạt (giới hạn 100 để đảm bảo hiệu suất)
-        lookup_cccd_list = cccd_list[:100]  # Xử lý 100 CCCD đầu tiên
+        # Thực hiện tra cứu hàng loạt (có thể cấu hình số lượng)
+        lookup_limit = int(os.getenv('LOOKUP_LIMIT', '500'))  # Mặc định 500, có thể tăng lên
+        lookup_cccd_list = cccd_list[:lookup_limit]  # Xử lý theo giới hạn cấu hình
         logger.info(f"🔍 Performing enhanced lookup for {len(lookup_cccd_list)} CCCD records")
         
         lookup_results = cccd_checker.batch_check(lookup_cccd_list)
