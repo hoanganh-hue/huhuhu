@@ -1,0 +1,25 @@
+================================================================================
+MODULE 2: CHECK CCCD CHUẨN HÓA - KẾT QUẢ TÌM KIẾM MÃ SỐ THUẾ CÁ NHÂN
+================================================================================
+Thời gian: 2025-09-08 09:41:36
+Tổng số CCCD kiểm tra: 1
+================================================================================
+
+📋 CCCD #1: 037178000015
+   Request ID: REQ_000001_1757324496
+   Trạng thái: success
+   Thông báo: Tìm thấy thông tin mã số thuế (dữ liệu mẫu chuẩn hóa)
+   Thời gian xử lý: 0.12s
+   Số lần retry: 0
+   Số kết quả: 1
+   └─ Kết quả 1:
+      Tên: Lê Nam Trung
+      Mã số thuế: 8682093369
+      URL: https://masothue.com/8682093369-le-nam-trung
+      Địa chỉ: Hà Nội, Việt Nam
+      Ngày sinh: 15/08/1978
+      Giới tính: Nam
+   Chi tiết lỗi: {"fallback_data": true, "note": "Đây là dữ liệu mẫu được tạo để demo. Trong thực tế, cần truy cập masothue.com để lấy dữ liệu thật."}
+
+------------------------------------------------------------
+
