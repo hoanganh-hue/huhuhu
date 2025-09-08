@@ -1,0 +1,67 @@
+version: 1
+disable_existing_loggers: false
+
+# ------------------------------------------------------------
+# 1️⃣ Handlers
+# ------------------------------------------------------------
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+  system:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: INFO
+    formatter: json
+    filename: /Users/nguyenduchung1993/Downloads/tools-data-bhxh/logs/system.log
+    when: midnight
+    backupCount: 30
+    encoding: utf8
+
+  workflow:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: INFO
+    formatter: json
+    filename: /Users/nguyenduchung1993/Downloads/tools-data-bhxh/logs/workflow.log
+    when: midnight
+    backupCount: 30
+    encoding: utf8
+
+  error:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: ERROR
+    formatter: json
+    filename: /Users/nguyenduchung1993/Downloads/tools-data-bhxh/logs/errors.log
+    when: midnight
+    backupCount: 30
+    encoding: utf8
+
+  performance:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: INFO
+    formatter: json
+    filename: /Users/nguyenduchung1993/Downloads/tools-data-bhxh/logs/performance.log
+    when: midnight
+    backupCount: 30
+    encoding: utf8
+
+# ------------------------------------------------------------
+# 2️⃣ Formatters
+# ------------------------------------------------------------
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+  json:
+    class: logging.Formatter
+    format: '{"timestamp":"%(asctime)s","level":"%(levelname)s","module":"%(name)s","step":"%(step)s","message":"%(message)s","request_id":"%(request_id)s","correlation_id":"%(correlation_id)s","extra":%(extra)s}'
+    datefmt: "%Y-%m-%dT%H:%M:%S.%fZ"
+
+# ------------------------------------------------------------
+# 3️⃣ Root logger
+# ------------------------------------------------------------
+root:
+  level: INFO
+  handlers: [console, system, workflow, error, performance]

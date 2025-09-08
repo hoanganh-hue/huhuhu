@@ -1,0 +1,13 @@
+2025-09-08 12:21:15 | WORKFLOW | INFO     | STEP: START WORKFLOW: Hệ thống Tự động hóa Tra cứu Thông tin at 2025-09-08T12:21:15.845834
+2025-09-08 12:21:15 | WORKFLOW | INFO     | STEP: START STEP 1: BƯỚC 1: Tạo số CCCD at 2025-09-08T12:21:15.846151
+2025-09-08 12:21:15 | WORKFLOW | INFO     | STEP: SUCCESS STEP 1: BƯỚC 1: Tạo số CCCD - 1000 records - 0.05s
+2025-09-08 12:21:15 | WORKFLOW | INFO     | STEP: START STEP 2: BƯỚC 2: Check CCCD từ masothue.com at 2025-09-08T12:21:15.893210
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: SUCCESS STEP 2: BƯỚC 2: Check CCCD từ masothue.com - 0 records - 0.36s
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: START STEP 3: BƯỚC 3: Tra cứu thông tin Doanh nghiệp at 2025-09-08T12:21:16.257098
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: START STEP 4: BƯỚC 4: Tra cứu thông tin BHXH at 2025-09-08T12:21:16.257360
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: SUCCESS STEP 4: BƯỚC 4: Tra cứu thông tin BHXH - 0 records - 0.00s
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: START STEP 5: BƯỚC 5: Tổng hợp và chuẩn hóa dữ liệu từ 4 nguồn at 2025-09-08T12:21:16.259012
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: SUCCESS STEP 5: BƯỚC 5: Tổng hợp và chuẩn hóa dữ liệu từ 4 nguồn - 0 records - 0.08s
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: START STEP 6: BƯỚC 6: Xuất báo cáo Excel at 2025-09-08T12:21:16.342989
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: SUCCESS STEP 6: BƯỚC 6: Xuất báo cáo Excel - 0 records - 0.53s
+2025-09-08 12:21:16 | WORKFLOW | INFO     | STEP: END WORKFLOW: Hệ thống Tự động hóa Tra cứu Thông tin - THÀNH CÔNG - 0 records, 0 errors

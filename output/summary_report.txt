@@ -1,0 +1,33 @@
+
+===============================================================================
+                    BÁO CÁO TỰ ĐỘNG HÓA TRA CỨU THÔNG TIN
+===============================================================================
+
+Thời gian tạo báo cáo: 2025-09-08 12:21:16
+
+TỔNG KẾT QUÁ TRÌNH WORKFLOW 6 BƯỚC:
+
+1. Tạo số CCCD:
+   - Tổng số CCCD đã tạo: 1000
+
+2. Check CCCD từ masothue.com:
+   - Số lượng tìm thấy: 0
+   - Tỷ lệ thành công: 0.0%
+
+3. Tra cứu thông tin Doanh nghiệp:
+   - Số lượng tìm thấy: 0
+   - Tỷ lệ thành công: 0.0%
+
+4. Tra cứu thông tin BHXH:
+   - Số lượng tìm thấy: 0
+   - Tỷ lệ thành công: 0.0%
+
+5. Tổng hợp dữ liệu từ 4 nguồn:
+   - Số lượng records hoàn chỉnh: 0
+   - Tỷ lệ hoàn chỉnh: 0.0%
+
+6. Xuất báo cáo Excel:
+   - File Excel đã được tạo thành công
+
+
+===============================================================================

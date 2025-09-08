@@ -1,0 +1,236 @@
+{
+  "id": 1028712,
+  "tax_id": "0200136914",
+  "name": "Công ty kinh doanh vận chuyển hành khách - Hải Phòng",
+  "name_en": "HAIPHONG TRANSPORT",
+  "slug": "/0200136914-cong-ty-kinh-doanh-van-chuyen-hanh-khach-hai-phong",
+  "address_raw": "Số 5 Hồ Xuân Hương - Quận Hồng Bàng - Hải Phòng",
+  "city": "Hải Phòng",
+  "city_id": 34,
+  "district": "Quận Hồng Bàng",
+  "district_id": 380,
+  "ward": "Chưa rõ",
+  "ward_id": 2110,
+  "status": "closed",
+  "registered_date": "1998-08-27",
+  "start_date": "1995-01-12",
+  "closed_date": "2011-12-23",
+  "employees": 154,
+  "industry": "Vận tải đường bộ khác",
+  "industry_ids": [
+    581
+  ],
+  "industry_codes": [
+    "H",
+    "49",
+    "493"
+  ],
+  "owner": null,
+  "director": "Lê Quang Chừng",
+  "accountant": "Lê Thị Lệ Quyên",
+  "bank_accounts": [
+    "182912|/ngan-hang/ngan-hang-vp-bank-hai-phong|Ngân hàng VP Bank Hải phòng"
+  ],
+  "branches": [
+    {
+      "title": "Chi nhánh Hà nội",
+      "tax_id": "0200136914",
+      "address": "45 Lê Đại Hành",
+      "relation": 3
+    },
+    {
+      "title": "CN cty LD V/C Hành khách tại Quảng Ninh",
+      "tax_id": "0200136914",
+      "address": "Số 4 Lê Thánh Tông",
+      "relation": 3
+    },
+    {
+      "title": "Chi nhánh Hà nội",
+      "tax_id": "0200136914",
+      "address": "45 Lê Đại Hành",
+      "relation": 2
+    },
+    {
+      "title": "CN cty LD V/C Hành khách tại Quảng Ninh",
+      "tax_id": "0200136914",
+      "address": "Số 4 Lê Thánh Tông",
+      "relation": 2
+    }
+  ],
+  "tags": [
+    "0200136914",
+    "777",
+    "823276",
+    "HAIPHONG TRANSPORT",
+    "Hải Phòng",
+    "Quận Hồng Bàng",
+    "Lê Quang Chừng",
+    "Lê Thị Lệ Quyên"
+  ],
+  "source_id": 1151567,
+  "raw": {
+    "Type": 11,
+    "SolrID": "/0200136914-cong-ty-kinh-doanh-van-chuyen-hanh-khach-hai-phong",
+    "ID": 1028712,
+    "MaSoThue": "0200136914",
+    "NgayCap": "1998-08-27T00:00:00Z",
+    "NgayDongMST": "2011-12-23T00:00:00Z",
+    "Title": "Công ty kinh doanh vận chuyển hành khách - Hải Phòng",
+    "TitleEn": "HAIPHONG TRANSPORT",
+    "TitleEnAscii": null,
+    "DiaChiCongTy": "Số 5 Hồ Xuân Hương - Quận Hồng Bàng - Hải Phòng",
+    "DiaChiNhanThongBaoThue": "Số 5 Hồ Xuân Hương -  - Quận Hồng Bàng - Hải Phòng",
+    "NamTaiChinh": "1998-01-01T00:00:00Z",
+    "MaSoHienThoi": "",
+    "NgayNhanToKhai": "1998-06-01T00:00:00Z",
+    "NgayBatDauHopDong": "1995-01-12T00:00:00Z",
+    "VonDieuLe": "",
+    "TongSoLaoDong": 154,
+    "CapChuongLoaiKhoan": "1-152-220-223",
+    "HinhThucThanhToan": "",
+    "PhuongPhapTinhThueGTGT": "Khấu trừ",
+    "ChuSoHuu": "",
+    "ChuSoHuu_DiaChi": "-",
+    "GiamDoc": "Lê Quang Chừng",
+    "GiamDoc_DiaChi": "",
+    "KeToanTruong": "Lê Thị Lệ Quyên",
+    "KeToanTruong_DiaChi": "",
+    "Created": "2015-11-17T14:09:28Z",
+    "Updated": "2015-11-17T14:09:28Z",
+    "IsDelete": false,
+    "RequestChanged": false,
+    "ExitsInGDT": true,
+    "SourceID": 1151567,
+    "TinhThanhID": 34,
+    "TinhThanhTitle": "Hải Phòng",
+    "TinhThanhTitleAscii": "/hai-phong",
+    "QuanHuyenID": 380,
+    "QuanHuyenTitle": "Quận Hồng Bàng",
+    "QuanHuyenTitleAscii": "/hai-phong/quan-hong-bang",
+    "PhuongXaID": 2110,
+    "PhuongXaTitle": "Chưa rõ",
+    "PhuongXaTitleAscii": "/hai-phong/quan-hong-bang/chua-ro",
+    "NoiDangKyQuanLyID": 1428,
+    "NoiDangKyQuanLy_CoQuanTitle": "Cục Thuế TP Hải Phòng",
+    "NoiDangKyQuanLy_CoQuanTitleAscii": "/co-quan-quan-ly/cuc-thue-tp-hai-phong",
+    "NoiDangKyQuanLy_DienThoai": "823276",
+    "NoiDangKyQuanLy_Fax": "841199",
+    "NoiNopThueID": null,
+    "NoiNopThue_DienThoai": "823276",
+    "NoiNopThue_Fax": "841199",
+    "NoiNopThue_CoQuanTitle": "",
+    "NoiNopThue_CoQuanTitleAscii": "",
+    "QuyetDinhThanhLap": "777",
+    "QuyetDinhThanhLap_NgayCap": "1994-01-28T00:00:00Z",
+    "QuyetDinhThanhLap_CoQuanCapID": 19637,
+    "QuyetDinhThanhLap_CoQuanCapTitle": "Uỷ ban Nhà nước về hợp tác và đầu tư",
+    "QuyetDinhThanhLap_CoQuanCapTitleAscii": "/co-quan-quan-ly/uy-ban-nha-nuoc-ve-hop-tac-va-dau-tu",
+    "GiayPhepKinhDoanh_CoQuanCapID": 19637,
+    "GiayPhepKinhDoanh_CoQuanCapTitle": "Uỷ ban Nhà nước về hợp tác và đầu tư",
+    "GiayPhepKinhDoanh_CoQuanCapTitleAscii": "/co-quan-quan-ly/uy-ban-nha-nuoc-ve-hop-tac-va-dau-tu",
+    "GiayPhepKinhDoanh": "777",
+    "GiayPhepKinhDoanh_NgayCap": "1994-01-28T00:00:00Z",
+    "LoaiHinhID": null,
+    "LoaiHinhTitle": "",
+    "LoaiHinhTitleAscii": "",
+    "NganhNgheID": 581,
+    "NganhNgheTitle": "Vận tải đường bộ khác",
+    "NganhNgheTitleAscii": "/nganh-nghe/van-tai-duong-bo-khac",
+    "DSNganhNgheKinhDoanh": [],
+    "DSNganhNgheKinhDoanhID": [
+      581
+    ],
+    "DSMaNganhNgheKinhDoanh": [
+      "H",
+      "49",
+      "493"
+    ],
+    "Lv1": null,
+    "Lv2": null,
+    "Lv3": null,
+    "Lv4": null,
+    "Lv5": null,
+    "DSNganHang": [
+      "182912|/ngan-hang/ngan-hang-vp-bank-hai-phong|Ngân hàng VP Bank Hải phòng"
+    ],
+    "DSNganHangID": [
+      65929
+    ],
+    "DSThuePhaiNop": [
+      "1|/thue/gia-tri-gia-tang|Giá trị gia tăng",
+      "2|/thue/thu-nhap-doanh-nghiep|Thu nhập doanh nghiệp",
+      "3|/thue/thu-nhap-ca-nhan|Thu nhập cá nhân",
+      "4|/thue/mon-bai|Môn bài"
+    ],
+    "DSThuePhaiNopID": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "LtsDoanhNghiepTrucThuoc": [
+      {
+        "Type": 8,
+        "QuanHe": 3,
+        "SolrID": "/don-vi-truc-thuoc/0200136914-chi-nhanh-ha-noi",
+        "ID": 230642,
+        "MaSoThue": "0200136914",
+        "Title": "Chi nhánh Hà nội",
+        "DiaChi": "45 Lê Đại Hành",
+        "DoanhNghiepID": 1028712,
+        "DoanhNghiepTitle": "Công ty kinh doanh vận chuyển hành khách - Hải Phòng",
+        "DoanhNghiepMaSoThue": "0200136914",
+        "DoanhNghiepTitleAscii": "cong-ty-kinh-doanh-van-chuyen-hanh-khach-hai-phong"
+      },
+      {
+        "Type": 8,
+        "QuanHe": 3,
+        "SolrID": "/don-vi-truc-thuoc/0200136914-cn-cty-ld-v-c-hanh-khach-tai-quang-ninh",
+        "ID": 230643,
+        "MaSoThue": "0200136914",
+        "Title": "CN cty LD V/C Hành khách tại Quảng Ninh",
+        "DiaChi": "Số 4 Lê Thánh Tông",
+        "DoanhNghiepID": 1028712,
+        "DoanhNghiepTitle": "Công ty kinh doanh vận chuyển hành khách - Hải Phòng",
+        "DoanhNghiepMaSoThue": "0200136914",
+        "DoanhNghiepTitleAscii": "cong-ty-kinh-doanh-van-chuyen-hanh-khach-hai-phong"
+      },
+      {
+        "Type": 8,
+        "QuanHe": 2,
+        "SolrID": "/don-vi-thanh-vien/0200136914-chi-nhanh-ha-noi",
+        "ID": 230642,
+        "MaSoThue": "0200136914",
+        "Title": "Chi nhánh Hà nội",
+        "DiaChi": "45 Lê Đại Hành",
+        "DoanhNghiepID": 1028712,
+        "DoanhNghiepTitle": "Công ty kinh doanh vận chuyển hành khách - Hải Phòng",
+        "DoanhNghiepMaSoThue": "0200136914",
+        "DoanhNghiepTitleAscii": "cong-ty-kinh-doanh-van-chuyen-hanh-khach-hai-phong"
+      },
+      {
+        "Type": 8,
+        "QuanHe": 2,
+        "SolrID": "/don-vi-thanh-vien/0200136914-cn-cty-ld-v-c-hanh-khach-tai-quang-ninh",
+        "ID": 230643,
+        "MaSoThue": "0200136914",
+        "Title": "CN cty LD V/C Hành khách tại Quảng Ninh",
+        "DiaChi": "Số 4 Lê Thánh Tông",
+        "DoanhNghiepID": 1028712,
+        "DoanhNghiepTitle": "Công ty kinh doanh vận chuyển hành khách - Hải Phòng",
+        "DoanhNghiepMaSoThue": "0200136914",
+        "DoanhNghiepTitleAscii": "cong-ty-kinh-doanh-van-chuyen-hanh-khach-hai-phong"
+      }
+    ],
+    "DSTags": [
+      "0200136914",
+      "777",
+      "823276",
+      "HAIPHONG TRANSPORT",
+      "Hải Phòng",
+      "Quận Hồng Bàng",
+      "Lê Quang Chừng",
+      "Lê Thị Lệ Quyên"
+    ]
+  }
+}
