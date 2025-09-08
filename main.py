@@ -63,25 +63,40 @@ def main():
         
         logger.info(f"✅ Feature-1 completed: Generated {len(cccd_data)} CCCD records")
         
-        # Feature-2: Data Lookup (Tra cứu dữ liệu thực tế)
-        logger.info("🔍 Starting Feature-2: Data Lookup")
-        from src.modules.core.data_lookup import DataLookupService
+        # Feature-2: CCCD Check với Module 2 Enhanced (Tra cứu dữ liệu thực tế)
+        logger.info("🔍 Starting Feature-2: CCCD Check with Enhanced Anti-bot Protection")
+        from src.modules.core.module_2_check_cccd_enhanced import Module2CheckCCCDEnhanced
         
-        lookup_service = DataLookupService(config)
+        # Thêm cấu hình proxy vào config nếu có
+        config.update({
+            'max_retries': 3,
+            'proxy_enabled': os.getenv('PROXY_ENABLED', 'false').lower() == 'true',
+            'proxy_type': os.getenv('PROXY_TYPE', 'socks5'),
+            'proxy_socks5_host': os.getenv('PROXY_SOCKS5_HOST', ''),
+            'proxy_socks5_port': os.getenv('PROXY_SOCKS5_PORT', ''),
+            'proxy_socks5_username': os.getenv('PROXY_SOCKS5_USERNAME', ''),
+            'proxy_socks5_password': os.getenv('PROXY_SOCKS5_PASSWORD', ''),
+            'proxy_http_host': os.getenv('PROXY_HTTP_HOST', ''),
+            'proxy_http_port': os.getenv('PROXY_HTTP_PORT', ''),
+            'proxy_http_username': os.getenv('PROXY_HTTP_USERNAME', ''),
+            'proxy_http_password': os.getenv('PROXY_HTTP_PASSWORD', '')
+        })
+        
+        cccd_checker = Module2CheckCCCDEnhanced(config)
         
         # Lấy danh sách CCCD để tra cứu
         cccd_list = [cccd_item.cccd for cccd_item in cccd_data]
         
-        # Thực hiện tra cứu hàng loạt (giới hạn 100 để test)
-        test_cccd_list = cccd_list[:100]  # Test với 100 CCCD đầu tiên
-        logger.info(f"🔍 Performing lookup for {len(test_cccd_list)} CCCD records")
+        # Thực hiện tra cứu hàng loạt (giới hạn 100 để đảm bảo hiệu suất)
+        lookup_cccd_list = cccd_list[:100]  # Xử lý 100 CCCD đầu tiên
+        logger.info(f"🔍 Performing enhanced lookup for {len(lookup_cccd_list)} CCCD records")
         
-        lookup_results = lookup_service.batch_lookup(test_cccd_list)
+        lookup_results = cccd_checker.batch_check(lookup_cccd_list)
         
         # Lưu kết quả tra cứu
-        lookup_service.save_results(lookup_results, 'output/lookup_results.json')
+        cccd_checker.save_results(lookup_results, 'cccd_lookup_results.json')
         
-        logger.info(f"✅ Feature-2 completed: Lookup completed for {len(lookup_results)} records")
+        logger.info(f"✅ Feature-2 completed: Enhanced lookup completed for {len(lookup_results)} records")
         
         # Feature-6: Excel Export với dữ liệu thực tế
         logger.info("📊 Starting Feature-6: Excel Export with Real Data")
@@ -104,16 +119,17 @@ def main():
                 'Ngày sinh': cccd_item.birth_date,
                 'Địa chỉ': cccd_item.address,
                 'Mã số thuế': lookup_result.tax_code if lookup_result else None,
-                'Tên công ty': lookup_result.company_name if lookup_result else None,
+                'Tên công ty': lookup_result.name if lookup_result else None,
                 'Người đại diện': lookup_result.representative if lookup_result else None,
-                'Mã BHXH': lookup_result.bhxh_code if lookup_result else f'BHXH{i:06d}',
                 'Loại hình DN': lookup_result.business_type if lookup_result else 'Chưa xác định',
                 'Trạng thái': lookup_result.business_status if lookup_result else 'Chưa tra cứu',
                 'Ngày đăng ký': lookup_result.registration_date if lookup_result else None,
                 'Số điện thoại': lookup_result.phone if lookup_result else None,
                 'Email': lookup_result.email if lookup_result else None,
                 'Trạng thái tra cứu': lookup_result.status if lookup_result else 'Chưa tra cứu',
-                'Nguồn dữ liệu': lookup_result.source if lookup_result else 'Generated'
+                'Nguồn dữ liệu': lookup_result.source if lookup_result else 'Generated',
+                'Thời gian phản hồi': f"{lookup_result.response_time:.2f}s" if lookup_result and lookup_result.response_time else None,
+                'Lỗi': lookup_result.error if lookup_result else None
             })
         
         # Export to Excel
@@ -135,7 +151,7 @@ def main():
         logger.info(f"📁 Output files:")
         logger.info(f"  - {config['output_file']} (Excel with real data)")
         logger.info(f"  - output/cccd_data.txt (CCCD data)")
-        logger.info(f"  - output/lookup_results.json (Lookup results)")
+        logger.info(f"  - output/cccd_lookup_results.json (Enhanced lookup results)")
         logger.info(f"  - output/summary_report.txt (Summary)")
         
     except Exception as e:
