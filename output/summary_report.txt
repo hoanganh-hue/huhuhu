@@ -1,9 +1,9 @@
 BÁO CÁO TỔNG KẾT XUẤT DỮ LIỆU
 ==================================================
 
-Ngày xuất: 2025-09-08 12:58:27
+Ngày xuất: 2025-09-08 13:38:57
 Tổng số bản ghi: 1000
-Số cột dữ liệu: 9
+Số cột dữ liệu: 17
 
 Các cột dữ liệu:
   1. STT
@@ -11,10 +11,18 @@ Các cột dữ liệu:
   3. Họ và tên
   4. Ngày sinh
   5. Địa chỉ
-  6. Mã BHXH
-  7. Ngành nghề
-  8. Doanh thu
-  9. Ghi chú
+  6. Mã số thuế
+  7. Tên công ty
+  8. Người đại diện
+  9. Loại hình DN
+  10. Trạng thái
+  11. Ngày đăng ký
+  12. Số điện thoại
+  13. Email
+  14. Trạng thái tra cứu
+  15. Nguồn dữ liệu
+  16. Thời gian phản hồi
+  17. Lỗi
 
 Thống kê null values:
   STT: 0
@@ -22,18 +30,34 @@ Thống kê null values:
   Họ và tên: 0
   Ngày sinh: 0
   Địa chỉ: 0
-  Mã BHXH: 0
-  Ngành nghề: 0
-  Doanh thu: 0
-  Ghi chú: 0
+  Mã số thuế: 1000
+  Tên công ty: 1000
+  Người đại diện: 1000
+  Loại hình DN: 100
+  Trạng thái: 100
+  Ngày đăng ký: 1000
+  Số điện thoại: 1000
+  Email: 1000
+  Trạng thái tra cứu: 0
+  Nguồn dữ liệu: 0
+  Thời gian phản hồi: 900
+  Lỗi: 900
 
 Thống kê unique values:
   STT: 1000
   CCCD: 1000
-  Họ và tên: 930
-  Ngày sinh: 875
-  Địa chỉ: 920
-  Mã BHXH: 1000
-  Ngành nghề: 1
-  Doanh thu: 1
-  Ghi chú: 1
+  Họ và tên: 948
+  Ngày sinh: 882
+  Địa chỉ: 915
+  Mã số thuế: 0
+  Tên công ty: 0
+  Người đại diện: 0
+  Loại hình DN: 1
+  Trạng thái: 1
+  Ngày đăng ký: 0
+  Số điện thoại: 0
+  Email: 0
+  Trạng thái tra cứu: 2
+  Nguồn dữ liệu: 2
+  Thời gian phản hồi: 17
+  Lỗi: 1
