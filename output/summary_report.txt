@@ -1,33 +1,39 @@
+BÁO CÁO TỔNG KẾT XUẤT DỮ LIỆU
+==================================================
 
-===============================================================================
-                    BÁO CÁO TỰ ĐỘNG HÓA TRA CỨU THÔNG TIN
-===============================================================================
+Ngày xuất: 2025-09-08 12:52:01
+Tổng số bản ghi: 1000
+Số cột dữ liệu: 9
 
-Thời gian tạo báo cáo: 2025-09-08 12:21:16
+Các cột dữ liệu:
+  1. STT
+  2. CCCD
+  3. Họ và tên
+  4. Ngày sinh
+  5. Địa chỉ
+  6. Mã BHXH
+  7. Ngành nghề
+  8. Doanh thu
+  9. Ghi chú
 
-TỔNG KẾT QUÁ TRÌNH WORKFLOW 6 BƯỚC:
+Thống kê null values:
+  STT: 0
+  CCCD: 0
+  Họ và tên: 0
+  Ngày sinh: 0
+  Địa chỉ: 0
+  Mã BHXH: 0
+  Ngành nghề: 0
+  Doanh thu: 0
+  Ghi chú: 0
 
-1. Tạo số CCCD:
-   - Tổng số CCCD đã tạo: 1000
-
-2. Check CCCD từ masothue.com:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-3. Tra cứu thông tin Doanh nghiệp:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-4. Tra cứu thông tin BHXH:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-5. Tổng hợp dữ liệu từ 4 nguồn:
-   - Số lượng records hoàn chỉnh: 0
-   - Tỷ lệ hoàn chỉnh: 0.0%
-
-6. Xuất báo cáo Excel:
-   - File Excel đã được tạo thành công
-
-
-===============================================================================
+Thống kê unique values:
+  STT: 1000
+  CCCD: 1000
+  Họ và tên: 942
+  Ngày sinh: 881
+  Địa chỉ: 918
+  Mã BHXH: 1000
+  Ngành nghề: 1
+  Doanh thu: 1
+  Ghi chú: 1
