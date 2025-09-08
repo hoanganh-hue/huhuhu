@@ -1,5 +1,5 @@
 """
-Module 2 Enhanced - Check CCCD với Smart Anti-bot Protection
+Module 2 Enhanced V3 - Check CCCD với Smart Anti-bot Protection
 Tích hợp với masothue.com với adaptive delay thông minh
 """
 
@@ -36,8 +36,8 @@ class SearchResult:
     source: str = "masothue.com"
     additional_info: Dict[str, Any] = field(default_factory=dict)
 
-class Module2CheckCCCDEnhanced:
-    """Module 2 Enhanced - Tra cứu CCCD với smart anti-bot protection"""
+class Module2CheckCCCDEnhancedV3:
+    """Module 2 Enhanced V3 - Tra cứu CCCD với smart anti-bot protection"""
     
     def __init__(self, config: Dict[str, Any]):
         self.config = config
@@ -51,7 +51,7 @@ class Module2CheckCCCDEnhanced:
         self.last_request_time = 0
         self.consecutive_403_count = 0
         self.session = self._create_session()
-        logger.info("✅ Module 2 Enhanced initialized with smart anti-bot protection")
+        logger.info("✅ Module 2 Enhanced V3 initialized with smart anti-bot protection")
     
     def _load_user_agents(self) -> List[str]:
         """Load danh sách User-Agent để rotate"""
@@ -433,7 +433,7 @@ if __name__ == "__main__":
     }
     
     # Initialize module
-    module = Module2CheckCCCDEnhanced(test_config)
+    module = Module2CheckCCCDEnhancedV3(test_config)
     
     # Test with sample CCCD
     test_cccd = "037178000015"

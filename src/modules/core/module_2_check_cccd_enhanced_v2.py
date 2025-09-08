@@ -1,6 +1,6 @@
 """
-Module 2 Enhanced - Check CCCD với Smart Anti-bot Protection
-Tích hợp với masothue.com với adaptive delay thông minh
+Module 2 Enhanced V2 - Check CCCD với Advanced Anti-bot Protection
+Tích hợp với masothue.com với các chiến lược anti-bot tiên tiến
 """
 
 import requests
@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 from dataclasses import dataclass, field
 from typing import Optional, Dict, Any, List
 from pathlib import Path
+import itertools
 
 logger = logging.getLogger(__name__)
 
@@ -36,31 +37,35 @@ class SearchResult:
     source: str = "masothue.com"
     additional_info: Dict[str, Any] = field(default_factory=dict)
 
-class Module2CheckCCCDEnhanced:
-    """Module 2 Enhanced - Tra cứu CCCD với smart anti-bot protection"""
+class Module2CheckCCCDEnhancedV2:
+    """Module 2 Enhanced V2 - Tra cứu CCCD với advanced anti-bot protection"""
     
     def __init__(self, config: Dict[str, Any]):
         self.config = config
         self.masothue_url = "https://masothue.com"
         self.max_retries = config.get('max_retries', 3)
-        self.delay_range = (2, 4)  # Delay cơ bản
+        self.delay_range = (3, 8)  # Tăng delay để tránh detection
         self.proxy_config = self._load_proxy_config()
         self.user_agents = self._load_user_agents()
         self.current_ua_index = 0
         self.request_count = 0
         self.last_request_time = 0
-        self.consecutive_403_count = 0
         self.session = self._create_session()
-        logger.info("✅ Module 2 Enhanced initialized with smart anti-bot protection")
+        logger.info("✅ Module 2 Enhanced V2 initialized with advanced anti-bot protection")
     
     def _load_user_agents(self) -> List[str]:
         """Load danh sách User-Agent để rotate"""
         return [
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
             "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:124.0) Gecko/20100101 Firefox/124.0",
+            "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0"
         ]
     
     def _load_proxy_config(self) -> Dict[str, Any]:
@@ -118,14 +123,14 @@ class Module2CheckCCCDEnhanced:
         return proxy_config
     
     def _create_session(self) -> requests.Session:
-        """Tạo session với smart anti-bot headers và proxy"""
+        """Tạo session với advanced anti-bot headers và proxy"""
         session = requests.Session()
         
         # Rotate User-Agent
         user_agent = self.user_agents[self.current_ua_index]
         self.current_ua_index = (self.current_ua_index + 1) % len(self.user_agents)
         
-        # Smart browser-like headers
+        # Advanced browser-like headers
         session.headers.update({
             "User-Agent": user_agent,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -138,7 +143,10 @@ class Module2CheckCCCDEnhanced:
             "Sec-Fetch-Mode": "navigate",
             "Sec-Fetch-Site": "none",
             "Sec-Fetch-User": "?1",
-            "Cache-Control": "max-age=0"
+            "Cache-Control": "max-age=0",
+            "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": '"Windows"'
         })
         
         # Configure proxy if enabled
@@ -160,27 +168,27 @@ class Module2CheckCCCDEnhanced:
         
         return session
     
-    def _smart_delay(self):
-        """Smart delay based on request patterns and errors"""
+    def _adaptive_delay(self):
+        """Adaptive delay based on request frequency and errors"""
         current_time = time.time()
         time_since_last = current_time - self.last_request_time
         
         # Base delay
         base_delay = random.uniform(*self.delay_range)
         
-        # Increase delay if consecutive 403 errors
-        if self.consecutive_403_count > 0:
-            base_delay += self.consecutive_403_count * random.uniform(2, 4)
-        
         # Increase delay if requests are too frequent
-        if time_since_last < 1.5:
-            base_delay += random.uniform(1, 3)
+        if time_since_last < 2:
+            base_delay += random.uniform(2, 5)
+        
+        # Increase delay if we've made many requests recently
+        if self.request_count > 50:
+            base_delay += random.uniform(3, 8)
         
         # Add random jitter
-        jitter = random.uniform(0.5, 1.5)
+        jitter = random.uniform(0.5, 2.0)
         total_delay = base_delay + jitter
         
-        logger.info(f"⏱️ Smart delay: {total_delay:.2f}s (403_count: {self.consecutive_403_count})")
+        logger.info(f"⏱️ Adaptive delay: {total_delay:.2f}s")
         time.sleep(total_delay)
         self.last_request_time = time.time()
         self.request_count += 1
@@ -190,14 +198,14 @@ class Module2CheckCCCDEnhanced:
         logger.info("🔄 Rotating session to avoid detection")
         self.session.close()
         self.session = self._create_session()
-        time.sleep(random.uniform(1, 2))
+        time.sleep(random.uniform(2, 4))
     
     def _get_cookies(self) -> bool:
-        """Lấy cookies từ trang chủ masothue.com với smart retry"""
-        for attempt in range(2):
+        """Lấy cookies từ trang chủ masothue.com với retry logic"""
+        for attempt in range(3):
             try:
-                # Rotate session every 30 requests
-                if self.request_count % 30 == 0 and self.request_count > 0:
+                # Rotate session every 20 requests
+                if self.request_count % 20 == 0 and self.request_count > 0:
                     self._rotate_session()
                 
                 response = self.session.get(self.masothue_url, timeout=15)
@@ -206,14 +214,14 @@ class Module2CheckCCCDEnhanced:
                     return True
                 else:
                     logger.warning(f"⚠️ Failed to get cookies: {response.status_code}")
-                    if attempt < 1:
-                        time.sleep(random.uniform(2, 4))
+                    if attempt < 2:
+                        self._adaptive_delay()
                         continue
                     return False
             except Exception as e:
                 logger.error(f"❌ Error getting cookies: {e}")
-                if attempt < 1:
-                    time.sleep(random.uniform(2, 4))
+                if attempt < 2:
+                    self._adaptive_delay()
                     continue
                 return False
         return False
@@ -283,15 +291,15 @@ class Module2CheckCCCDEnhanced:
         return result
     
     def check_cccd(self, cccd: str) -> SearchResult:
-        """Tra cứu thông tin CCCD từ masothue.com với smart anti-bot"""
+        """Tra cứu thông tin CCCD từ masothue.com với advanced anti-bot"""
         result = SearchResult(cccd=cccd, status="not_found")
         
         for attempt in range(self.max_retries):
             try:
                 logger.info(f"🔍 Looking up CCCD: {cccd} (attempt {attempt + 1}/{self.max_retries})")
                 
-                # Smart delay
-                self._smart_delay()
+                # Adaptive delay
+                self._adaptive_delay()
                 
                 # Lấy cookies trước
                 if not self._get_cookies():
@@ -319,27 +327,18 @@ class Module2CheckCCCDEnhanced:
                     parsed_result = self._parse_search_results(response.text)
                     parsed_result.cccd = cccd
                     parsed_result.response_time = result.response_time
-                    
-                    # Reset consecutive 403 count on success
-                    self.consecutive_403_count = 0
-                    
                     return parsed_result
                     
                 elif response.status_code == 403:
                     logger.warning(f"⚠️ 403 Forbidden for {cccd} - anti-bot protection")
                     result.error = f"403 Forbidden - anti-bot protection"
                     
-                    # Increase consecutive 403 count
-                    self.consecutive_403_count += 1
-                    
                     # Rotate session on 403
                     self._rotate_session()
                     
                     if attempt < self.max_retries - 1:
-                        # Smart delay based on consecutive 403 count
-                        delay = min(15 + (self.consecutive_403_count * 5), 60)
-                        logger.info(f"⏱️ Waiting {delay}s before retry due to 403")
-                        time.sleep(delay)
+                        # Tăng delay đáng kể cho lần thử tiếp theo
+                        time.sleep(random.uniform(10, 20))
                         continue
                     return result
                     
@@ -347,7 +346,7 @@ class Module2CheckCCCDEnhanced:
                     logger.warning(f"⚠️ Unexpected status code for {cccd}: {response.status_code}")
                     result.error = f"HTTP {response.status_code}"
                     if attempt < self.max_retries - 1:
-                        self._smart_delay()
+                        self._adaptive_delay()
                         continue
                     return result
                     
@@ -355,7 +354,7 @@ class Module2CheckCCCDEnhanced:
                 logger.error(f"❌ Request error for {cccd}: {e}")
                 result.error = str(e)
                 if attempt < self.max_retries - 1:
-                    self._smart_delay()
+                    self._adaptive_delay()
                     continue
                 return result
                 
@@ -363,32 +362,32 @@ class Module2CheckCCCDEnhanced:
                 logger.error(f"❌ Unexpected error for {cccd}: {e}")
                 result.error = str(e)
                 if attempt < self.max_retries - 1:
-                    self._smart_delay()
+                    self._adaptive_delay()
                     continue
                 return result
         
         return result
     
     def batch_check(self, cccd_list: List[str]) -> List[SearchResult]:
-        """Tra cứu hàng loạt CCCD với smart anti-bot protection"""
+        """Tra cứu hàng loạt CCCD với advanced anti-bot protection"""
         results = []
         total = len(cccd_list)
         
-        logger.info(f"🔄 Starting batch check for {total} CCCD records with smart anti-bot protection")
+        logger.info(f"🔄 Starting batch check for {total} CCCD records with advanced anti-bot protection")
         
         for i, cccd in enumerate(cccd_list, 1):
             logger.info(f"🔄 Processing {i}/{total}: {cccd}")
             result = self.check_cccd(cccd)
             results.append(result)
             
-            # Smart delay between requests
+            # Adaptive delay between requests
             if i < total:
-                self._smart_delay()
+                self._adaptive_delay()
         
         logger.info(f"✅ Batch check completed: {len(results)} results")
         return results
     
-    def save_results(self, results: List[SearchResult], output_file: str = "cccd_lookup_results_v3.json"):
+    def save_results(self, results: List[SearchResult], output_file: str = "cccd_lookup_results_v2.json"):
         """Lưu kết quả tra cứu"""
         output_dir = Path("output")
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -433,7 +432,7 @@ if __name__ == "__main__":
     }
     
     # Initialize module
-    module = Module2CheckCCCDEnhanced(test_config)
+    module = Module2CheckCCCDEnhancedV2(test_config)
     
     # Test with sample CCCD
     test_cccd = "037178000015"

@@ -63,8 +63,8 @@ def main():
         
         logger.info(f"✅ Feature-1 completed: Generated {len(cccd_data)} CCCD records")
         
-        # Feature-2: CCCD Check với Module 2 Enhanced (Tra cứu dữ liệu thực tế)
-        logger.info("🔍 Starting Feature-2: CCCD Check with Enhanced Anti-bot Protection")
+        # Feature-2: CCCD Check với Module 2 Enhanced V3 (Tra cứu dữ liệu thực tế)
+        logger.info("🔍 Starting Feature-2: CCCD Check with Smart Anti-bot Protection")
         from src.modules.core.module_2_check_cccd_enhanced import Module2CheckCCCDEnhanced
         
         # Thêm cấu hình proxy vào config nếu có
