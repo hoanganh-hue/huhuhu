@@ -1,8 +1,5 @@
-http://8.210.83.33:80
-http://47.74.152.29:8888
-http://103.152.112.145:80
-http://185.162.251.76:80
-http://103.152.112.162:80
-http://47.74.152.29:8888
-http://103.152.112.145:80
-http://185.162.251.76:80
+# SOCKS5 Proxy - mproxy.vn (Primary)
+socks5://beba111:tDV5tkMchYUBMD@ip.mproxy.vn:12301
+
+# HTTP Proxy - mproxy.vn (Fallback)
+http://beba111:tDV5tkMchYUBMD@ip.mproxy.vn:12301

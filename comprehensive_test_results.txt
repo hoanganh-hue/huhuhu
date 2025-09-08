@@ -1,0 +1,22 @@
+COMPREHENSIVE ANTI-BOT TEST RESULTS
+==================================================
+
+Test Date: 2025-09-08 10:51:42
+Total Tests: 10
+Successful: 0
+Failed: 10
+Success Rate: 0.0%
+Methods Tested: enhanced_anti_bot, playwright_fallback
+
+DETAILED RESULTS:
+------------------------------
+
+CCCD: 001087016369
+
+CCCD: 001184032114
+
+CCCD: 001098021288
+
+CCCD: 001094001628
+
+CCCD: 036092002342
