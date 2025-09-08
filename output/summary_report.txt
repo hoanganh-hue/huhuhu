@@ -1,33 +1,16 @@
+BÁO CÁO TỔNG KẾT HỆ THỐNG BHXH DATA TOOLS
+==========================================
 
-===============================================================================
-                    BÁO CÁO TỰ ĐỘNG HÓA TRA CỨU THÔNG TIN
-===============================================================================
+Thời gian: 2025-09-08 06:36:35
 
-Thời gian tạo báo cáo: 2025-09-08 12:21:16
+THỐNG KÊ:
+- Tổng số CCCD tạo: 2000
+- Tìm thấy thông tin doanh nghiệp: 0
+- Tìm thấy thông tin BHXH: 0
+- Records cuối cùng: 2000
+- Số lỗi: 0
 
-TỔNG KẾT QUÁ TRÌNH WORKFLOW 6 BƯỚC:
+LỖI (nếu có):
+Không có lỗi
 
-1. Tạo số CCCD:
-   - Tổng số CCCD đã tạo: 1000
-
-2. Check CCCD từ masothue.com:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-3. Tra cứu thông tin Doanh nghiệp:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-4. Tra cứu thông tin BHXH:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-5. Tổng hợp dữ liệu từ 4 nguồn:
-   - Số lượng records hoàn chỉnh: 0
-   - Tỷ lệ hoàn chỉnh: 0.0%
-
-6. Xuất báo cáo Excel:
-   - File Excel đã được tạo thành công
-
-
-===============================================================================
+==========================================

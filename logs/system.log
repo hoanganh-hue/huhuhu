@@ -16,3 +16,53 @@
 2025-09-08 06:17:35,563 - IntegratedSystem - WARNING - ⚠️ Cảnh báo cấu hình:
 2025-09-08 06:17:35,563 - IntegratedSystem - WARNING -    - CAPTCHA API key chưa được cấu hình - BHXH lookup sẽ bị vô hiệu hóa
 2025-09-08 06:17:35,563 - IntegratedSystem - INFO - ✅ Cấu hình hệ thống hợp lệ
+2025-09-08 06:34:48,996 - IntegratedSystem - INFO - 🔧 Khởi tạo module wrappers...
+2025-09-08 06:34:48,996 - IntegratedSystem - INFO - ✅ CCCD Module Enhanced - Sẵn sàng (Tỷ lệ chính xác: 100%)
+2025-09-08 06:34:48,996 - IntegratedSystem - INFO - ✅ Check CCCD Module - Sẵn sàng (API từ masothue.com)
+2025-09-08 06:34:48,996 - IntegratedSystem - INFO - ✅ Doanh Nghiệp Module - Sẵn sàng (API từ thongtindoanhnghiep.co)
+2025-09-08 06:34:48,996 - IntegratedSystem - INFO - ✅ BHXH Module - Sẵn sàng
+2025-09-08 06:34:48,996 - IntegratedSystem - INFO - 🔍 Kiểm tra cấu hình hệ thống...
+2025-09-08 06:34:48,997 - IntegratedSystem - WARNING - ⚠️ Cảnh báo cấu hình:
+2025-09-08 06:34:48,997 - IntegratedSystem - WARNING -    - CAPTCHA API key chưa được cấu hình - BHXH lookup sẽ bị vô hiệu hóa
+2025-09-08 06:34:48,997 - IntegratedSystem - INFO - ✅ Cấu hình hệ thống hợp lệ
+2025-09-08 06:34:48,997 - IntegratedSystem - INFO - 🚀 Bắt đầu workflow: Hệ thống Tự động hóa Tra cứu Thông tin
+2025-09-08 06:34:48,997 - IntegratedSystem - INFO - 📋 BƯỚC 1: Tạo số CCCD
+2025-09-08 06:34:49,005 - IntegratedSystem - INFO - ✅ Hoàn thành - 2000 records
+2025-09-08 06:34:49,005 - IntegratedSystem - INFO - 📋 BƯỚC 2: Check CCCD từ masothue.com
+2025-09-08 06:36:35,027 - IntegratedSystem - INFO - ✅ Hoàn thành - 0 records
+2025-09-08 06:36:35,028 - IntegratedSystem - WARNING - ⚠️ Không tìm thấy dữ liệu Check CCCD, tiếp tục với dữ liệu trống
+2025-09-08 06:36:35,028 - IntegratedSystem - INFO - 📋 BƯỚC 3: Tra cứu thông tin Doanh nghiệp
+2025-09-08 06:36:35,028 - IntegratedSystem - WARNING - ⚠️ Không có CCCD để tra cứu doanh nghiệp
+2025-09-08 06:36:35,028 - IntegratedSystem - WARNING - ⚠️ Không tìm thấy dữ liệu Doanh nghiệp, tiếp tục với dữ liệu trống
+2025-09-08 06:36:35,028 - IntegratedSystem - INFO - 📋 BƯỚC 4: Tra cứu thông tin BHXH
+2025-09-08 06:36:35,028 - IntegratedSystem - ERROR - ❌ CAPTCHA API key chưa được cấu hình - Không thể tra cứu BHXH
+2025-09-08 06:36:35,028 - IntegratedSystem - WARNING - ⚠️ Tra cứu BHXH thất bại: CAPTCHA API key chưa được cấu hình
+2025-09-08 06:36:35,028 - IntegratedSystem - INFO - ✅ Hoàn thành - 0 records
+2025-09-08 06:36:35,028 - IntegratedSystem - WARNING - ⚠️ Không tìm thấy dữ liệu BHXH, tiếp tục với dữ liệu trống
+2025-09-08 06:36:35,028 - IntegratedSystem - INFO - 📋 BƯỚC 5: Tổng hợp và chuẩn hóa dữ liệu từ 4 nguồn
+2025-09-08 06:36:35,029 - IntegratedSystem - INFO - ✅ Hoàn thành - 2000 records
+2025-09-08 06:36:35,029 - IntegratedSystem - INFO - 📋 BƯỚC 6: Xuất báo cáo Excel
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO - ✅ Hoàn thành - 2000 records
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO - 📊 Thống kê cuối cùng:
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO -    - Thời gian thực hiện: 106.16s
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO -    - Tổng CCCD: 2000
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO -    - Check CCCD tìm thấy: 0
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO -    - Doanh nghiệp tìm thấy: 0
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO -    - BHXH tìm thấy: 0
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO -    - Records cuối cùng: 2000
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO -    - File Excel: output/bhxh_data_results.xlsx
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO - 🏁 Kết thúc workflow: Hệ thống Tự động hóa Tra cứu Thông tin - ✅ Thành công
+2025-09-08 06:36:35,155 - IntegratedSystem - INFO - 📊 Tổng records: 2000, Lỗi: 0
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - 🔧 Khởi tạo module wrappers...
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - ✅ CCCD Module Enhanced - Sẵn sàng (Tỷ lệ chính xác: 100%)
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - ✅ Check CCCD Module - Sẵn sàng (API từ masothue.com)
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - ✅ Doanh Nghiệp Module - Sẵn sàng (API từ thongtindoanhnghiep.co)
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - ✅ BHXH Module - Sẵn sàng
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - 🔍 Kiểm tra cấu hình hệ thống...
+2025-09-08 06:36:53,428 - IntegratedSystem - WARNING - ⚠️ Cảnh báo cấu hình:
+2025-09-08 06:36:53,428 - IntegratedSystem - WARNING -    - CAPTCHA API key chưa được cấu hình - BHXH lookup sẽ bị vô hiệu hóa
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - ✅ Cấu hình hệ thống hợp lệ
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - 🚀 Bắt đầu workflow: Hệ thống Tự động hóa Tra cứu Thông tin
+2025-09-08 06:36:53,428 - IntegratedSystem - INFO - 📋 BƯỚC 1: Tạo số CCCD
+2025-09-08 06:36:53,436 - IntegratedSystem - INFO - ✅ Hoàn thành - 2000 records
+2025-09-08 06:36:53,436 - IntegratedSystem - INFO - 📋 BƯỚC 2: Check CCCD từ masothue.com

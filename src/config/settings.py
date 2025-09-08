@@ -23,11 +23,11 @@ class Config:
     check_cccd_api_key: str = "dev-api-key-123"
     
     # CCCD Generation settings
-    cccd_province_code: str = "22"  # Quảng Ninh
+    cccd_province_code: str = "31"  # Hải Phòng
     cccd_gender: Optional[str] = "female"  # None for all, "male", "female"
     cccd_birth_year_from: int = 1965
     cccd_birth_year_to: int = 1975
-    cccd_count: int = 100
+    cccd_count: int = 2000
     
     # CAPTCHA settings
     captcha_api_key: str = "your_2captcha_api_key_here"
