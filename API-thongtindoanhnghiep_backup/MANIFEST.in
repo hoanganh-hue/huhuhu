@@ -1,6 +1,0 @@
-include README.md
-include LICENSE
-include requirements.txt
-include .env.template
-include py.typed
-recursive-include .github *
