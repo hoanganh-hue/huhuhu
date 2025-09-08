@@ -1,0 +1,84 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  simple:
+    format: "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+  
+  detailed:
+    format: "%(asctime)s | %(levelname)-8s | %(name)-20s | %(funcName)-15s | %(lineno)4d | %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+  
+  workflow:
+    format: "%(asctime)s | WORKFLOW | %(levelname)-8s | STEP: %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: simple
+    level: INFO
+    stream: ext://sys.stdout
+  
+  file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: detailed
+    level: INFO
+    filename: logs/system.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 5
+    encoding: utf8
+  
+  workflow_file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: workflow
+    level: INFO
+    filename: logs/workflow.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 5
+    encoding: utf8
+  
+  error_file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: detailed
+    level: ERROR
+    filename: logs/errors.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 5
+    encoding: utf8
+
+loggers:
+  app:
+    level: INFO
+    handlers: [console, file]
+    propagate: no
+  
+  workflow:
+    level: INFO
+    handlers: [console, workflow_file]
+    propagate: no
+  
+  error:
+    level: ERROR
+    handlers: [console, error_file]
+    propagate: no
+  
+  src.modules.core:
+    level: INFO
+    handlers: [console, file]
+    propagate: no
+  
+  src.utils:
+    level: INFO
+    handlers: [console, file]
+    propagate: no
+  
+  src.modules.cccd:
+    level: INFO
+    handlers: [console, file]
+    propagate: no
+
+root:
+  level: INFO
+  handlers: [console, file]

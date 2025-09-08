@@ -1,0 +1,306 @@
+{
+  "timestamp": "2025-09-08T10:39:48.279043",
+  "total_files": 205,
+  "total_directories": 46,
+  "issues": [],
+  "warnings": [],
+  "recommendations": [
+    {
+      "type": "missing_directories",
+      "directories": [
+        "config",
+        "modules",
+        "utils"
+      ],
+      "message": "Nên tạo các thư mục này để tổ chức tốt hơn"
+    },
+    {
+      "type": "archive_found",
+      "message": "Thư mục archive đã được tạo để tổ chức files"
+    }
+  ],
+  "file_conflicts": [
+    {
+      "type": "duplicate_name",
+      "file": "requirements.txt",
+      "locations": [
+        "./requirements.txt",
+        "./archive/bhxh-tool-enhanced-python_backup/requirements.txt"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "README.md",
+      "locations": [
+        "./README.md",
+        "./archive/bhxh-tool-enhanced-python_backup/README.md"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "setup.py",
+      "locations": [
+        "./setup.py",
+        "./archive/bhxh-tool-enhanced-python_backup/setup.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "main.py",
+      "locations": [
+        "./main.py",
+        "./archive/bhxh-tool-enhanced-python_backup/main.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/bhxh-tool-enhanced-python_backup/utils/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/bhxh-tool-enhanced-python_backup/services/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "requirements.txt",
+      "locations": [
+        "./requirements.txt",
+        "./archive/check-cccd_backup/requirements.txt"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": ".env.example",
+      "locations": [
+        "./.env.example",
+        "./archive/check-cccd_backup/.env.example"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/check-cccd_backup/tests/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "config.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/config.py",
+        "./archive/check-cccd_backup/src/check_cccd/config.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/check-cccd_backup/src/check_cccd/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "LICENSE",
+      "locations": [
+        "./LICENSE",
+        "./archive/API-thongtindoanhnghiep_backup/LICENSE"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "requirements.txt",
+      "locations": [
+        "./requirements.txt",
+        "./archive/API-thongtindoanhnghiep_backup/requirements.txt"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "README.md",
+      "locations": [
+        "./README.md",
+        "./archive/API-thongtindoanhnghiep_backup/README.md"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": ".env.template",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/.env.template",
+        "./archive/API-thongtindoanhnghiep_backup/.env.template"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "setup.py",
+      "locations": [
+        "./setup.py",
+        "./archive/API-thongtindoanhnghiep_backup/setup.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": ".gitignore",
+      "locations": [
+        "./.gitignore",
+        "./archive/API-thongtindoanhnghiep_backup/.gitignore"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": ".env",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/.env",
+        "./archive/API-thongtindoanhnghiep_backup/.env"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/API-thongtindoanhnghiep_backup/tests/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/API-thongtindoanhnghiep_backup/docs/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/API-thongtindoanhnghiep_backup/examples/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/API-thongtindoanhnghiep_backup/scripts/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "company_normalized.json",
+      "locations": [
+        "./archive/API-thongtindoanhnghiep_backup/company_normalized.json",
+        "./archive/API-thongtindoanhnghiep_backup/scripts/company_normalized.json"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "company_details_search.json",
+      "locations": [
+        "./archive/API-thongtindoanhnghiep_backup/company_details_search.json",
+        "./archive/API-thongtindoanhnghiep_backup/scripts/company_details_search.json"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "config.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/config.py",
+        "./archive/API-thongtindoanhnghiep_backup/src/thongtindoanhnghiep/config.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./archive/API-thongtindoanhnghiep_backup/src/thongtindoanhnghiep/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./tests/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "ci.yml",
+      "locations": [
+        "./archive/API-thongtindoanhnghiep_backup/.github/workflows/ci.yml",
+        "./.github/workflows/ci.yml"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "README.md",
+      "locations": [
+        "./README.md",
+        "./automation/README.md"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "scraper_fixed.py",
+      "locations": [
+        "./archive/check-cccd_backup/src/check_cccd/scraper_fixed.py",
+        "./check_cccd/src/check_cccd/scraper_fixed.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./src/config/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./src/utils/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "logger.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/utils/logger.py",
+        "./src/utils/logger.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./src/modules/core/__init__.py"
+      ]
+    },
+    {
+      "type": "duplicate_name",
+      "file": "__init__.py",
+      "locations": [
+        "./archive/bhxh-tool-enhanced-python_backup/config/__init__.py",
+        "./src/modules/cccd/__init__.py"
+      ]
+    }
+  ],
+  "dependency_conflicts": [],
+  "structure_score": 0
+}

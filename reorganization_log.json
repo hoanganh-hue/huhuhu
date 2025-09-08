@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-09-08T10:39:26.941856",
+  "actions_performed": [
+    "Created directory: src",
+    "Created directory: src/core",
+    "Created directory: src/modules",
+    "Created directory: src/utils",
+    "Created directory: src/config",
+    "Created directory: docs",
+    "Created directory: data",
+    "Moved API-thongtindoanhnghiep to archive",
+    "Moved bhxh-tool-enhanced-python to archive",
+    "Moved check-cccd to archive",
+    "Moved cccd to src/modules/cccd",
+    "Moved modules to src/modules/core",
+    "Moved utils to src/utils",
+    "Moved config to src/config",
+    "Created unified project configuration",
+    "Created cleanup script"
+  ],
+  "status": "completed"
+}
