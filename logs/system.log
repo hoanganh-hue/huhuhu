@@ -7,3 +7,12 @@
 2025-09-08 05:58:05,991 - IntegratedSystem - WARNING - ⚠️ Cảnh báo cấu hình:
 2025-09-08 05:58:05,992 - IntegratedSystem - WARNING -    - CAPTCHA API key chưa được cấu hình - BHXH lookup sẽ bị vô hiệu hóa
 2025-09-08 05:58:05,992 - IntegratedSystem - INFO - ✅ Cấu hình hệ thống hợp lệ
+2025-09-08 06:17:35,563 - IntegratedSystem - INFO - 🔧 Khởi tạo module wrappers...
+2025-09-08 06:17:35,563 - IntegratedSystem - INFO - ✅ CCCD Module Enhanced - Sẵn sàng (Tỷ lệ chính xác: 100%)
+2025-09-08 06:17:35,563 - IntegratedSystem - INFO - ✅ Check CCCD Module - Sẵn sàng (API từ masothue.com)
+2025-09-08 06:17:35,563 - IntegratedSystem - INFO - ✅ Doanh Nghiệp Module - Sẵn sàng (API từ thongtindoanhnghiep.co)
+2025-09-08 06:17:35,563 - IntegratedSystem - INFO - ✅ BHXH Module - Sẵn sàng
+2025-09-08 06:17:35,563 - IntegratedSystem - INFO - 🔍 Kiểm tra cấu hình hệ thống...
+2025-09-08 06:17:35,563 - IntegratedSystem - WARNING - ⚠️ Cảnh báo cấu hình:
+2025-09-08 06:17:35,563 - IntegratedSystem - WARNING -    - CAPTCHA API key chưa được cấu hình - BHXH lookup sẽ bị vô hiệu hóa
+2025-09-08 06:17:35,563 - IntegratedSystem - INFO - ✅ Cấu hình hệ thống hợp lệ
