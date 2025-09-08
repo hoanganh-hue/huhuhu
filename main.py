@@ -33,6 +33,7 @@ try:
     # Import modules
     from src.modules.core.cccd_wrapper import CCCDWrapper
     from src.modules.core.module_2_check_cccd import Module2CheckCCCD
+    from src.modules.core.module_2_check_cccd_enhanced import Module2CheckCCCDEnhanced
     from src.modules.core.bhxh_wrapper import BHXHWrapper
     from src.modules.core.doanh_nghiep_wrapper import DoanhNghiepWrapper
     from src.config.settings import get_config
@@ -111,7 +112,7 @@ class IntegratedLookupSystem:
                 'max_retries': 3,
                 'output_file': 'module_2_check_cccd_output.txt'
             }
-            self.check_cccd_module = Module2CheckCCCD(check_cccd_config)
+            self.check_cccd_module = Module2CheckCCCDEnhanced(check_cccd_config)
             self.logger.info("✅ Check CCCD Module - Sẵn sàng (API từ masothue.com)")
             
             # Doanh Nghiệp Module
