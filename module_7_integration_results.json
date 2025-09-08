@@ -1,0 +1,94 @@
+{
+  "test_info": {
+    "test_date": "2025-09-08T10:43:44.554383",
+    "module": "module_7_integration",
+    "total_cccds": 5,
+    "test_cccds": [
+      "001087016369",
+      "001184032114",
+      "001098021288",
+      "001094001628",
+      "036092002342"
+    ]
+  },
+  "summary": {
+    "total_requests": 5,
+    "successful": 0,
+    "not_found": 5,
+    "blocked": 0,
+    "errors": 0,
+    "processing_time": 8.449486800003797
+  },
+  "results": [
+    {
+      "cccd": "001087016369",
+      "method": "module_7_wrapper",
+      "result": {
+        "cccd": "001087016369",
+        "status": "not_found",
+        "message": "Không tìm thấy thông tin",
+        "profiles": [],
+        "timestamp": "2025-09-08T10:43:36.229667",
+        "proxy_used": "185.162.251.76",
+        "processing_time": 0.04178190231323242,
+        "retry_count": 0
+      }
+    },
+    {
+      "cccd": "001184032114",
+      "method": "module_7_wrapper",
+      "result": {
+        "cccd": "001184032114",
+        "status": "not_found",
+        "message": "Không tìm thấy thông tin",
+        "profiles": [],
+        "timestamp": "2025-09-08T10:43:38.331119",
+        "proxy_used": "103.152.112.162",
+        "processing_time": 0.04316973686218262,
+        "retry_count": 0
+      }
+    },
+    {
+      "cccd": "001098021288",
+      "method": "module_7_wrapper",
+      "result": {
+        "cccd": "001098021288",
+        "status": "not_found",
+        "message": "Không tìm thấy thông tin",
+        "profiles": [],
+        "timestamp": "2025-09-08T10:43:40.396034",
+        "proxy_used": "103.152.112.145",
+        "processing_time": 0.03360176086425781,
+        "retry_count": 0
+      }
+    },
+    {
+      "cccd": "001094001628",
+      "method": "module_7_wrapper",
+      "result": {
+        "cccd": "001094001628",
+        "status": "not_found",
+        "message": "Không tìm thấy thông tin",
+        "profiles": [],
+        "timestamp": "2025-09-08T10:43:42.482257",
+        "proxy_used": "103.152.112.162",
+        "processing_time": 0.04712629318237305,
+        "retry_count": 0
+      }
+    },
+    {
+      "cccd": "036092002342",
+      "method": "module_7_wrapper",
+      "result": {
+        "cccd": "036092002342",
+        "status": "not_found",
+        "message": "Không tìm thấy thông tin",
+        "profiles": [],
+        "timestamp": "2025-09-08T10:43:44.554302",
+        "proxy_used": "185.162.251.76",
+        "processing_time": 0.03134632110595703,
+        "retry_count": 0
+      }
+    }
+  ]
+}

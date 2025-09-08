@@ -395,11 +395,18 @@ class AdvancedAPIClient:
                     "https://": proxy.url
                 }
                 
-                # Tạo client với proxy
-                proxy_client = httpx.AsyncClient(timeout=self.timeout, proxies=proxies)
+                # Sử dụng proxy qua environment variables
+                import os
+                original_http_proxy = os.environ.get('HTTP_PROXY')
+                original_https_proxy = os.environ.get('HTTPS_PROXY')
+                
                 try:
-                    # Thực hiện request
-                    response = await proxy_client.request(
+                    # Set proxy environment variables
+                    os.environ['HTTP_PROXY'] = proxy.url
+                    os.environ['HTTPS_PROXY'] = proxy.url
+                    
+                    # Thực hiện request với client hiện có
+                    response = await self.client.request(
                         method=method,
                         url=url,
                         json=json_body,
@@ -408,7 +415,16 @@ class AdvancedAPIClient:
                         **extra
                     )
                 finally:
-                    await proxy_client.aclose()
+                    # Restore original proxy settings
+                    if original_http_proxy:
+                        os.environ['HTTP_PROXY'] = original_http_proxy
+                    elif 'HTTP_PROXY' in os.environ:
+                        del os.environ['HTTP_PROXY']
+                    
+                    if original_https_proxy:
+                        os.environ['HTTPS_PROXY'] = original_https_proxy
+                    elif 'HTTPS_PROXY' in os.environ:
+                        del os.environ['HTTPS_PROXY']
                 
                 processing_time = time.time() - start_time
                 
