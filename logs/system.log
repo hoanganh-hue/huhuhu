@@ -102,3 +102,27 @@
 2025-09-08 06:40:48,329 - IntegratedSystem - INFO - 📋 BƯỚC 1: Tạo số CCCD
 2025-09-08 06:40:48,337 - IntegratedSystem - INFO - ✅ Hoàn thành - 2000 records
 2025-09-08 06:40:48,337 - IntegratedSystem - INFO - 📋 BƯỚC 2: Check CCCD từ masothue.com
+2025-09-08 06:59:00,952 - IntegratedSystem - INFO - ✅ Hoàn thành - 0 records
+2025-09-08 06:59:00,954 - IntegratedSystem - WARNING - ⚠️ Không tìm thấy dữ liệu Check CCCD, tiếp tục với dữ liệu trống
+2025-09-08 06:59:00,954 - IntegratedSystem - INFO - 📋 BƯỚC 3: Tra cứu thông tin Doanh nghiệp
+2025-09-08 06:59:00,954 - IntegratedSystem - WARNING - ⚠️ Không có CCCD để tra cứu doanh nghiệp
+2025-09-08 06:59:00,954 - IntegratedSystem - WARNING - ⚠️ Không tìm thấy dữ liệu Doanh nghiệp, tiếp tục với dữ liệu trống
+2025-09-08 06:59:00,954 - IntegratedSystem - INFO - 📋 BƯỚC 4: Tra cứu thông tin BHXH
+2025-09-08 06:59:00,954 - IntegratedSystem - ERROR - ❌ CAPTCHA API key chưa được cấu hình - Không thể tra cứu BHXH
+2025-09-08 06:59:00,954 - IntegratedSystem - WARNING - ⚠️ Tra cứu BHXH thất bại: CAPTCHA API key chưa được cấu hình
+2025-09-08 06:59:00,954 - IntegratedSystem - INFO - ✅ Hoàn thành - 0 records
+2025-09-08 06:59:00,954 - IntegratedSystem - WARNING - ⚠️ Không tìm thấy dữ liệu BHXH, tiếp tục với dữ liệu trống
+2025-09-08 06:59:00,955 - IntegratedSystem - INFO - 📋 BƯỚC 5: Tổng hợp và chuẩn hóa dữ liệu từ 4 nguồn
+2025-09-08 06:59:00,955 - IntegratedSystem - INFO - ✅ Hoàn thành - 2000 records
+2025-09-08 06:59:00,955 - IntegratedSystem - INFO - 📋 BƯỚC 6: Xuất báo cáo Excel
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO - ✅ Hoàn thành - 2000 records
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO - 📊 Thống kê cuối cùng:
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO -    - Thời gian thực hiện: 1092.76s
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO -    - Tổng CCCD: 2000
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO -    - Check CCCD tìm thấy: 0
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO -    - Doanh nghiệp tìm thấy: 0
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO -    - BHXH tìm thấy: 0
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO -    - Records cuối cùng: 2000
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO -    - File Excel: output/bhxh_data_results.xlsx
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO - 🏁 Kết thúc workflow: Hệ thống Tự động hóa Tra cứu Thông tin - ✅ Thành công
+2025-09-08 06:59:01,094 - IntegratedSystem - INFO - 📊 Tổng records: 2000, Lỗi: 0

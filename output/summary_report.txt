@@ -1,0 +1,16 @@
+BÁO CÁO TỔNG KẾT HỆ THỐNG BHXH DATA TOOLS
+==========================================
+
+Thời gian: 2025-09-08 06:59:01
+
+THỐNG KÊ:
+- Tổng số CCCD tạo: 2000
+- Tìm thấy thông tin doanh nghiệp: 0
+- Tìm thấy thông tin BHXH: 0
+- Records cuối cùng: 2000
+- Số lỗi: 0
+
+LỖI (nếu có):
+Không có lỗi
+
+==========================================

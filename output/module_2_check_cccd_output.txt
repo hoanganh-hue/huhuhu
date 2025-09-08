@@ -1,0 +1,14 @@
+
+BƯỚC 2: CHECK CCCD TỪ MASOTHUE.COM
+Thời gian: 2025-09-08 06:59:00
+Tổng số CCCD tra cứu: 2000
+Số lượng tìm thấy thông tin: 0
+Tỷ lệ thành công: 100.0%
+Tỷ lệ tìm thấy: 0.0%
+API Available: True
+Module Available: True
+
+CHI TIẾT KẾT QUẢ:
+Không tìm thấy thông tin CCCD từ masothue.com.
+
+===============================================================================
