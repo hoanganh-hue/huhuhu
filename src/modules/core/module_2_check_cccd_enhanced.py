@@ -103,7 +103,7 @@ class Module2CheckCCCDEnhanced:
                 logger.info(f"🌐 SOCKS5: {socks5_config.get('host', 'N/A')}:{socks5_config.get('port', 'N/A')}")
     
     def _load_proxy_config(self) -> Dict[str, Any]:
-        """Load proxy configuration from environment or config file"""
+        """Load proxy configuration from config object, environment or config file"""
         proxy_config = {
             'enabled': False,
             'type': 'socks5',
@@ -112,27 +112,44 @@ class Module2CheckCCCDEnhanced:
         }
         
         try:
-            # Try to load from config file
-            if os.path.exists('config/proxy_config.json'):
+            # First, try to load from config object (passed during initialization)
+            if self.config.get('proxy_enabled'):
+                proxy_config['enabled'] = True
+                proxy_config['type'] = self.config.get('proxy_type', 'socks5')
+                
+                if proxy_config['type'] == 'socks5':
+                    proxy_config['socks5']['host'] = self.config.get('proxy_socks5_host', '')
+                    proxy_config['socks5']['port'] = self.config.get('proxy_socks5_port', '')
+                    proxy_config['socks5']['username'] = self.config.get('proxy_socks5_username', '')
+                    proxy_config['socks5']['password'] = self.config.get('proxy_socks5_password', '')
+                elif proxy_config['type'] == 'http':
+                    proxy_config['http']['host'] = self.config.get('proxy_http_host', '')
+                    proxy_config['http']['port'] = self.config.get('proxy_http_port', '')
+                    proxy_config['http']['username'] = self.config.get('proxy_http_username', '')
+                    proxy_config['http']['password'] = self.config.get('proxy_http_password', '')
+            
+            # If not found in config object, try to load from config file
+            elif os.path.exists('config/proxy_config.json'):
                 with open('config/proxy_config.json', 'r', encoding='utf-8') as f:
                     file_config = json.load(f)
                     proxy_config.update(file_config)
             
-            # Override with environment variables
-            proxy_config['enabled'] = os.getenv('PROXY_ENABLED', 'false').lower() == 'true'
-            proxy_config['type'] = os.getenv('PROXY_TYPE', 'socks5')
-            
-            # SOCKS5 config
-            proxy_config['socks5']['host'] = os.getenv('PROXY_SOCKS5_HOST', '')
-            proxy_config['socks5']['port'] = os.getenv('PROXY_SOCKS5_PORT', '')
-            proxy_config['socks5']['username'] = os.getenv('PROXY_SOCKS5_USERNAME', '')
-            proxy_config['socks5']['password'] = os.getenv('PROXY_SOCKS5_PASSWORD', '')
-            
-            # HTTP config
-            proxy_config['http']['host'] = os.getenv('PROXY_HTTP_HOST', '')
-            proxy_config['http']['port'] = os.getenv('PROXY_HTTP_PORT', '')
-            proxy_config['http']['username'] = os.getenv('PROXY_HTTP_USERNAME', '')
-            proxy_config['http']['password'] = os.getenv('PROXY_HTTP_PASSWORD', '')
+            # Finally, override with environment variables
+            if os.getenv('PROXY_ENABLED', '').lower() == 'true':
+                proxy_config['enabled'] = True
+                proxy_config['type'] = os.getenv('PROXY_TYPE', 'socks5')
+                
+                # SOCKS5 config
+                proxy_config['socks5']['host'] = os.getenv('PROXY_SOCKS5_HOST', '')
+                proxy_config['socks5']['port'] = os.getenv('PROXY_SOCKS5_PORT', '')
+                proxy_config['socks5']['username'] = os.getenv('PROXY_SOCKS5_USERNAME', '')
+                proxy_config['socks5']['password'] = os.getenv('PROXY_SOCKS5_PASSWORD', '')
+                
+                # HTTP config
+                proxy_config['http']['host'] = os.getenv('PROXY_HTTP_HOST', '')
+                proxy_config['http']['port'] = os.getenv('PROXY_HTTP_PORT', '')
+                proxy_config['http']['username'] = os.getenv('PROXY_HTTP_USERNAME', '')
+                proxy_config['http']['password'] = os.getenv('PROXY_HTTP_PASSWORD', '')
             
         except Exception as e:
             logger.warning(f"⚠️ Không thể load proxy config: {e}")
