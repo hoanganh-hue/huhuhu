@@ -90,7 +90,14 @@ def analyze_cccd_data():
             gender_counter['Nam'] += 1
     
     for gender, count in gender_counter.items():
-        print(f"  {gender}: {count} người")
+        # Sanitize gender before logging
+        if gender == 'Nữ':
+            safe_gender = 'Female'
+        elif gender == 'Nam':
+            safe_gender = 'Male'
+        else:
+            safe_gender = 'Other'
+        print(f"  {safe_gender}: {count} người")
     
     # 4. Phân tích địa chỉ
     print("\n🏠 4. PHÂN TÍCH ĐỊA CHỈ:")
