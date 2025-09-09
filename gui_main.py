@@ -21,7 +21,7 @@ import webbrowser
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, Dict, Any
-
+from cryptography.fernet import Fernet
 # Add current directory to Python path
 current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
@@ -660,9 +660,22 @@ class WorkflowGUI:
             # Extract province code from dropdown value
             province_value = self.config_vars['province_code'].get()
             province_code = province_value[:3] if province_value else "001"
-            
+
+            # --- Encrypt CAPTCHA API KEY before saving ---
+            captcha_api_key = self.config_vars['captcha_api_key'].get()
+            key_path = '.env.key'
+            if not os.path.exists(key_path):
+                key = Fernet.generate_key()
+                with open(key_path, 'wb') as kf:
+                    kf.write(key)
+            else:
+                with open(key_path, 'rb') as kf:
+                    key = kf.read()
+            fernet = Fernet(key)
+            encrypted_api_key = fernet.encrypt(captcha_api_key.encode()).decode()
+
             env_content = f"""# Configuration for Integrated Lookup System
-CAPTCHA_API_KEY={self.config_vars['captcha_api_key'].get()}
+CAPTCHA_API_KEY={encrypted_api_key}
 CCCD_COUNT={self.config_vars['cccd_count'].get()}
 CCCD_PROVINCE_CODE={province_code}
 CCCD_GENDER={self.config_vars['gender'].get()}
@@ -671,12 +684,12 @@ CCCD_BIRTH_YEAR_TO={self.config_vars['birth_year_to'].get()}
 LOG_LEVEL={self.config_vars['log_level'].get()}
 DEBUG_MODE=false
 """
-            
+
             with open('.env', 'w', encoding='utf-8') as f:
                 f.write(env_content)
-            
+
             messagebox.showinfo("Thành Công", "💾 Đã lưu cấu hình thành công!")
-            
+
         except Exception as e:
             messagebox.showerror("Lỗi", f"❌ Không thể lưu cấu hình: {e}")
     

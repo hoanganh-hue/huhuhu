@@ -1,4 +1,5 @@
 # Hệ Thống Tự Động Hóa Tra Cứu và Tổng Hợp Thông Tin BHXH
+cryptography==45.0.7
 # Python Dependencies - PRODUCTION READY
 # Phiên bản: 2.0.0 - Complete Edition
 
