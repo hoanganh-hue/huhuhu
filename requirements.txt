@@ -26,7 +26,7 @@ python-dateutil==2.8.2
 
 # GUI dependencies - Dependencies cho GUI
 tkinter  # Built-in với Python
-Pillow==10.1.0
+Pillow==10.3.0
 
 # Console output - Hiển thị console đẹp
 rich==13.7.0
