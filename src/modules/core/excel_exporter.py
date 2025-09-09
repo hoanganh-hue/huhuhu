@@ -17,6 +17,20 @@ logger = logging.getLogger(__name__)
 
 class ExcelExporter:
     """Excel Exporter cho Feature-6"""
+
+    @staticmethod
+    def _mask_gender(gender):
+        """
+        Mask or anonymize gender value for privacy.
+        Returns a generic label for known values, and 'Other' otherwise.
+        """
+        gender_map = {
+            "male": "Group A",
+            "female": "Group B",
+            "other": "Group C",
+            "unknown": "Group C"
+        }
+        return gender_map.get(str(gender).lower(), "Group C")
     
     def __init__(self, config: Dict[str, Any]):
         """Khởi tạo exporter"""
@@ -203,7 +217,8 @@ class ExcelExporter:
                 if 'gender_distribution' in summary:
                     f.write("\nPhân bố theo giới tính:\n")
                     for gender, count in summary['gender_distribution'].items():
-                        f.write(f"  {gender}: {count}\n")
+                        masked_gender = self._mask_gender(gender)
+                        f.write(f"  {masked_gender}: {count}\n")
                 
                 if 'province_distribution' in summary:
                     f.write("\nPhân bố theo tỉnh:\n")
