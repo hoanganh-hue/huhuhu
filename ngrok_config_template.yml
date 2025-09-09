@@ -1,0 +1,18 @@
+# Ngrok Configuration Template
+# Copy this file to ~/.config/ngrok/ngrok.yml and add your authtoken
+
+version: "2"
+authtoken: YOUR_AUTHTOKEN_HERE
+tunnels:
+  ssh:
+    proto: tcp
+    addr: 22
+    remote_addr: 0.tcp.ngrok.io:0
+  vnc:
+    proto: tcp
+    addr: 5900
+    remote_addr: 0.tcp.ngrok.io:0
+  web:
+    proto: http
+    addr: 8080
+    subdomain: cccd-project

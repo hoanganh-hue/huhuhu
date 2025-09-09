@@ -1,33 +1,63 @@
+BÁO CÁO TỔNG KẾT XUẤT DỮ LIỆU
+==================================================
 
-===============================================================================
-                    BÁO CÁO TỰ ĐỘNG HÓA TRA CỨU THÔNG TIN
-===============================================================================
+Ngày xuất: 2025-09-08 14:45:50
+Tổng số bản ghi: 1000
+Số cột dữ liệu: 17
 
-Thời gian tạo báo cáo: 2025-09-08 12:21:16
+Các cột dữ liệu:
+  1. STT
+  2. CCCD
+  3. Họ và tên
+  4. Ngày sinh
+  5. Địa chỉ
+  6. Mã số thuế
+  7. Tên công ty
+  8. Người đại diện
+  9. Loại hình DN
+  10. Trạng thái
+  11. Ngày đăng ký
+  12. Số điện thoại
+  13. Email
+  14. Trạng thái tra cứu
+  15. Nguồn dữ liệu
+  16. Thời gian phản hồi
+  17. Lỗi
 
-TỔNG KẾT QUÁ TRÌNH WORKFLOW 6 BƯỚC:
+Thống kê null values:
+  STT: 0
+  CCCD: 0
+  Họ và tên: 0
+  Ngày sinh: 0
+  Địa chỉ: 0
+  Mã số thuế: 1000
+  Tên công ty: 1000
+  Người đại diện: 1000
+  Loại hình DN: 500
+  Trạng thái: 500
+  Ngày đăng ký: 1000
+  Số điện thoại: 1000
+  Email: 1000
+  Trạng thái tra cứu: 0
+  Nguồn dữ liệu: 0
+  Thời gian phản hồi: 500
+  Lỗi: 500
 
-1. Tạo số CCCD:
-   - Tổng số CCCD đã tạo: 1000
-
-2. Check CCCD từ masothue.com:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-3. Tra cứu thông tin Doanh nghiệp:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-4. Tra cứu thông tin BHXH:
-   - Số lượng tìm thấy: 0
-   - Tỷ lệ thành công: 0.0%
-
-5. Tổng hợp dữ liệu từ 4 nguồn:
-   - Số lượng records hoàn chỉnh: 0
-   - Tỷ lệ hoàn chỉnh: 0.0%
-
-6. Xuất báo cáo Excel:
-   - File Excel đã được tạo thành công
-
-
-===============================================================================
+Thống kê unique values:
+  STT: 1000
+  CCCD: 1000
+  Họ và tên: 937
+  Ngày sinh: 881
+  Địa chỉ: 927
+  Mã số thuế: 0
+  Tên công ty: 0
+  Người đại diện: 0
+  Loại hình DN: 1
+  Trạng thái: 1
+  Ngày đăng ký: 0
+  Số điện thoại: 0
+  Email: 0
+  Trạng thái tra cứu: 2
+  Nguồn dữ liệu: 2
+  Thời gian phản hồi: 186
+  Lỗi: 3
