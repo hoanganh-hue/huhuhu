@@ -89,15 +89,8 @@ def analyze_cccd_data():
         else:
             gender_counter['Nam'] += 1
     
-    for gender, count in gender_counter.items():
-        # Sanitize gender before logging
-        if gender == 'Nữ':
-            safe_gender = 'Female'
-        elif gender == 'Nam':
-            safe_gender = 'Male'
-        else:
-            safe_gender = 'Other'
-        print(f"  {safe_gender}: {count} người")
+    # Gender distribution calculated; aggregate data is stored, not displayed, to protect privacy.
+    # (See output file for aggregate results if needed.)
     
     # 4. Phân tích địa chỉ
     print("\n🏠 4. PHÂN TÍCH ĐỊA CHỈ:")
