@@ -22,7 +22,7 @@ def upload_file_simple(file_path, folder_id=None):
         
         print(f"📁 File: {file_name}")
         print(f"📊 Size: {file_size:.1f} MB")
-        print(f"🔑 API Key: {API_KEY[:20]}...")
+        print(f"🔑 API Key is set.")
         
         # URL endpoint
         url = "https://www.googleapis.com/upload/drive/v3/files"
