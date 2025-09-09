@@ -1,0 +1,92 @@
+{
+  "001087016369": {
+    "method_1_session_based": {
+      "status": "error",
+      "message": "Homepage error: 403"
+    },
+    "method_2_direct_api": {
+      "status": "error",
+      "message": "Direct API error: 403"
+    },
+    "method_3_mobile_headers": {
+      "status": "error",
+      "message": "Mobile search page error: 403"
+    },
+    "method_4_curl_headers": {
+      "status": "error",
+      "message": "Curl API error: 403"
+    }
+  },
+  "001184032114": {
+    "method_1_session_based": {
+      "status": "error",
+      "message": "Homepage error: 403"
+    },
+    "method_2_direct_api": {
+      "status": "error",
+      "message": "Direct API error: 403"
+    },
+    "method_3_mobile_headers": {
+      "status": "error",
+      "message": "Mobile search page error: 403"
+    },
+    "method_4_curl_headers": {
+      "status": "error",
+      "message": "Curl API error: 403"
+    }
+  },
+  "001098021288": {
+    "method_1_session_based": {
+      "status": "error",
+      "message": "Homepage error: 403"
+    },
+    "method_2_direct_api": {
+      "status": "error",
+      "message": "Direct API error: 403"
+    },
+    "method_3_mobile_headers": {
+      "status": "error",
+      "message": "Mobile search page error: 403"
+    },
+    "method_4_curl_headers": {
+      "status": "error",
+      "message": "Curl API error: 403"
+    }
+  },
+  "001094001628": {
+    "method_1_session_based": {
+      "status": "error",
+      "message": "Homepage error: 403"
+    },
+    "method_2_direct_api": {
+      "status": "error",
+      "message": "Direct API error: 403"
+    },
+    "method_3_mobile_headers": {
+      "status": "error",
+      "message": "Mobile search page error: 403"
+    },
+    "method_4_curl_headers": {
+      "status": "error",
+      "message": "Curl API error: 403"
+    }
+  },
+  "036092002342": {
+    "method_1_session_based": {
+      "status": "error",
+      "message": "Homepage error: 403"
+    },
+    "method_2_direct_api": {
+      "status": "error",
+      "message": "Direct API error: 403"
+    },
+    "method_3_mobile_headers": {
+      "status": "error",
+      "message": "Mobile search page error: 403"
+    },
+    "method_4_curl_headers": {
+      "status": "error",
+      "message": "Curl API error: 403"
+    }
+  }
+}
