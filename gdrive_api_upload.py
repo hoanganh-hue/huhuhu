@@ -113,7 +113,7 @@ def main():
     file_path = "cccd_project_complete.zip"
     folder_id = "14AX0Qo41QW95eqFzEGqSym2HGz41PhNF"  # Folder ID từ link
     
-    print(f"🔑 API Key: {API_KEY[:20]}...")
+    print("🔑 API Key has been loaded.")
     print(f"📁 File: {file_path}")
     print(f"🎯 Folder ID: {folder_id}")
     print()
