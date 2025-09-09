@@ -18,7 +18,7 @@ def analyze_oauth_issue():
         
         print("✅ Credentials đã đọc thành công")
         print(f"🔑 Client ID: {creds['web']['client_id']}")
-        print(f"🔐 Client Secret: {creds['web']['client_secret'][:10]}...")
+        print("🔐 Client Secret: [Đã tải, không hiển thị]")
         print(f"🏢 Project ID: {creds['web']['project_id']}")
         print()
         
