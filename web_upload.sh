@@ -1,0 +1,15 @@
+#!/bin/bash
+# Web Upload Script
+echo "🌐 Opening Google Drive for web upload..."
+echo "📁 File: cccd_project_complete.zip"
+echo "📊 Size: 2.2 MB"
+echo "🎯 Folder: https://drive.google.com/drive/folders/14AX0Qo41QW95eqFzEGqSym2HGz41PhNF"
+echo ""
+echo "📋 INSTRUCTIONS:"
+echo "1. Login to Google account"
+echo "2. Go to the folder link above"
+echo "3. Drag and drop the file"
+echo "4. Wait for upload to complete"
+echo ""
+echo "🔗 Opening browser..."
+xdg-open "https://drive.google.com/drive/folders/14AX0Qo41QW95eqFzEGqSym2HGz41PhNF"

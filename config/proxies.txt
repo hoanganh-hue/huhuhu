@@ -1,0 +1,5 @@
+# SOCKS5 Proxy - mproxy.vn (Primary)
+socks5://beba111:tDV5tkMchYUBMD@ip.mproxy.vn:12301
+
+# HTTP Proxy - mproxy.vn (Fallback)
+http://beba111:tDV5tkMchYUBMD@ip.mproxy.vn:12301

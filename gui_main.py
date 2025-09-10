@@ -80,7 +80,18 @@ class WorkflowGUI:
             'gender': tk.StringVar(value=""),
             'birth_year_from': tk.StringVar(value="1990"),
             'birth_year_to': tk.StringVar(value="2000"),
-            'log_level': tk.StringVar(value="INFO")
+            'log_level': tk.StringVar(value="INFO"),
+            # Proxy configuration
+            'proxy_enabled': tk.BooleanVar(value=False),
+            'proxy_type': tk.StringVar(value="socks5"),
+            'proxy_host': tk.StringVar(),
+            'proxy_port': tk.StringVar(),
+            'proxy_username': tk.StringVar(),
+            'proxy_password': tk.StringVar(),
+            'proxy_http_host': tk.StringVar(),
+            'proxy_http_port': tk.StringVar(),
+            'proxy_http_username': tk.StringVar(),
+            'proxy_http_password': tk.StringVar()
         }
         
         # Setup GUI
@@ -219,13 +230,269 @@ class WorkflowGUI:
                                 width=10, state="readonly")
         log_combo['values'] = ["INFO", "WARNING", "ERROR"]
         log_combo.pack(side=tk.LEFT, padx=(5, 0))
+        
+        # Proxy Configuration Panel
+        self._create_proxy_panel(parent)
+    
+    def _create_proxy_panel(self, parent):
+        """
+        Tạo panel cấu hình proxy
+        """
+        proxy_frame = ttk.LabelFrame(parent, text="🌐 CẤU HÌNH PROXY", padding="10")
+        proxy_frame.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 10))
+        proxy_frame.columnconfigure(1, weight=1)
+        
+        # Enable Proxy Checkbox
+        proxy_enable_frame = ttk.Frame(proxy_frame)
+        proxy_enable_frame.grid(row=0, column=0, columnspan=2, sticky=tk.W, pady=(0, 10))
+        
+        ttk.Checkbutton(proxy_enable_frame, text="🔧 Bật Proxy", 
+                       variable=self.config_vars['proxy_enabled'],
+                       command=self._toggle_proxy_fields).pack(side=tk.LEFT)
+        
+        # Proxy Type Selection
+        ttk.Label(proxy_frame, text="🔗 Loại Proxy:").grid(row=1, column=0, sticky=tk.W, pady=2)
+        proxy_type_frame = ttk.Frame(proxy_frame)
+        proxy_type_frame.grid(row=1, column=1, sticky=tk.W, padx=(10, 0), pady=2)
+        
+        ttk.Radiobutton(proxy_type_frame, text="SOCKS5", variable=self.config_vars['proxy_type'], 
+                       value="socks5", command=self._toggle_proxy_fields).pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Radiobutton(proxy_type_frame, text="HTTP", variable=self.config_vars['proxy_type'], 
+                       value="http", command=self._toggle_proxy_fields).pack(side=tk.LEFT)
+        
+        # SOCKS5 Proxy Configuration
+        self.socks5_frame = ttk.LabelFrame(proxy_frame, text="SOCKS5 Proxy", padding="5")
+        self.socks5_frame.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(5, 0))
+        self.socks5_frame.columnconfigure(1, weight=1)
+        
+        # SOCKS5 Host
+        ttk.Label(self.socks5_frame, text="🌐 Host:").grid(row=0, column=0, sticky=tk.W, pady=2)
+        ttk.Entry(self.socks5_frame, textvariable=self.config_vars['proxy_host'], 
+                 width=30).grid(row=0, column=1, sticky=(tk.W, tk.E), padx=(10, 0), pady=2)
+        
+        # SOCKS5 Port
+        ttk.Label(self.socks5_frame, text="🔌 Port:").grid(row=0, column=2, sticky=tk.W, padx=(20, 0), pady=2)
+        ttk.Entry(self.socks5_frame, textvariable=self.config_vars['proxy_port'], 
+                 width=10).grid(row=0, column=3, sticky=tk.W, padx=(10, 0), pady=2)
+        
+        # SOCKS5 Username
+        ttk.Label(self.socks5_frame, text="👤 Username:").grid(row=1, column=0, sticky=tk.W, pady=2)
+        ttk.Entry(self.socks5_frame, textvariable=self.config_vars['proxy_username'], 
+                 width=30).grid(row=1, column=1, sticky=(tk.W, tk.E), padx=(10, 0), pady=2)
+        
+        # SOCKS5 Password
+        ttk.Label(self.socks5_frame, text="🔑 Password:").grid(row=1, column=2, sticky=tk.W, padx=(20, 0), pady=2)
+        ttk.Entry(self.socks5_frame, textvariable=self.config_vars['proxy_password'], 
+                 show="*", width=20).grid(row=1, column=3, sticky=tk.W, padx=(10, 0), pady=2)
+        
+        # HTTP Proxy Configuration
+        self.http_frame = ttk.LabelFrame(proxy_frame, text="HTTP Proxy", padding="5")
+        self.http_frame.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(5, 0))
+        self.http_frame.columnconfigure(1, weight=1)
+        
+        # HTTP Host
+        ttk.Label(self.http_frame, text="🌐 Host:").grid(row=0, column=0, sticky=tk.W, pady=2)
+        ttk.Entry(self.http_frame, textvariable=self.config_vars['proxy_http_host'], 
+                 width=30).grid(row=0, column=1, sticky=(tk.W, tk.E), padx=(10, 0), pady=2)
+        
+        # HTTP Port
+        ttk.Label(self.http_frame, text="🔌 Port:").grid(row=0, column=2, sticky=tk.W, padx=(20, 0), pady=2)
+        ttk.Entry(self.http_frame, textvariable=self.config_vars['proxy_http_port'], 
+                 width=10).grid(row=0, column=3, sticky=tk.W, padx=(10, 0), pady=2)
+        
+        # HTTP Username
+        ttk.Label(self.http_frame, text="👤 Username:").grid(row=1, column=0, sticky=tk.W, pady=2)
+        ttk.Entry(self.http_frame, textvariable=self.config_vars['proxy_http_username'], 
+                 width=30).grid(row=1, column=1, sticky=(tk.W, tk.E), padx=(10, 0), pady=2)
+        
+        # HTTP Password
+        ttk.Label(self.http_frame, text="🔑 Password:").grid(row=1, column=2, sticky=tk.W, padx=(20, 0), pady=2)
+        ttk.Entry(self.http_frame, textvariable=self.config_vars['proxy_http_password'], 
+                 show="*", width=20).grid(row=1, column=3, sticky=tk.W, padx=(10, 0), pady=2)
+        
+        # Test Proxy Button
+        test_proxy_frame = ttk.Frame(proxy_frame)
+        test_proxy_frame.grid(row=4, column=0, columnspan=2, pady=(10, 0))
+        
+        ttk.Button(test_proxy_frame, text="🧪 KIỂM TRA PROXY", 
+                  command=self._test_proxy_connection).pack(side=tk.LEFT, padx=(0, 10))
+        
+        ttk.Button(test_proxy_frame, text="💾 LƯU CẤU HÌNH PROXY", 
+                  command=self._save_proxy_config).pack(side=tk.LEFT)
+        
+        # Initialize proxy fields state
+        self._toggle_proxy_fields()
+    
+    def _toggle_proxy_fields(self):
+        """
+        Bật/tắt các trường proxy dựa trên cấu hình
+        """
+        proxy_enabled = self.config_vars['proxy_enabled'].get()
+        proxy_type = self.config_vars['proxy_type'].get()
+        
+        # Enable/disable proxy frames
+        state = tk.NORMAL if proxy_enabled else tk.DISABLED
+        
+        # SOCKS5 frame
+        for child in self.socks5_frame.winfo_children():
+            if isinstance(child, ttk.Entry):
+                child.config(state=state)
+        
+        # HTTP frame
+        for child in self.http_frame.winfo_children():
+            if isinstance(child, ttk.Entry):
+                child.config(state=state)
+        
+        # Show/hide appropriate proxy type
+        if proxy_enabled:
+            if proxy_type == "socks5":
+                self.socks5_frame.grid()
+                self.http_frame.grid_remove()
+            else:
+                self.socks5_frame.grid_remove()
+                self.http_frame.grid()
+        else:
+            self.socks5_frame.grid_remove()
+            self.http_frame.grid_remove()
+    
+    def _test_proxy_connection(self):
+        """
+        Kiểm tra kết nối proxy
+        """
+        if not self.config_vars['proxy_enabled'].get():
+            messagebox.showwarning("Cảnh Báo", "Vui lòng bật proxy trước khi kiểm tra!")
+            return
+        
+        proxy_type = self.config_vars['proxy_type'].get()
+        
+        try:
+            if proxy_type == "socks5":
+                host = self.config_vars['proxy_host'].get()
+                port = self.config_vars['proxy_port'].get()
+                username = self.config_vars['proxy_username'].get()
+                password = self.config_vars['proxy_password'].get()
+                
+                if not host or not port:
+                    messagebox.showerror("Lỗi", "Vui lòng nhập đầy đủ Host và Port cho SOCKS5 proxy!")
+                    return
+                
+                # Test SOCKS5 proxy
+                self._test_socks5_proxy(host, port, username, password)
+                
+            else:  # HTTP proxy
+                host = self.config_vars['proxy_http_host'].get()
+                port = self.config_vars['proxy_http_port'].get()
+                username = self.config_vars['proxy_http_username'].get()
+                password = self.config_vars['proxy_http_password'].get()
+                
+                if not host or not port:
+                    messagebox.showerror("Lỗi", "Vui lòng nhập đầy đủ Host và Port cho HTTP proxy!")
+                    return
+                
+                # Test HTTP proxy
+                self._test_http_proxy(host, port, username, password)
+                
+        except Exception as e:
+            messagebox.showerror("Lỗi", f"❌ Lỗi khi kiểm tra proxy: {e}")
+    
+    def _test_socks5_proxy(self, host, port, username, password):
+        """
+        Kiểm tra SOCKS5 proxy
+        """
+        try:
+            import requests
+            
+            # Build proxy URL
+            if username and password:
+                proxy_url = f"socks5://{username}:{password}@{host}:{port}"
+            else:
+                proxy_url = f"socks5://{host}:{port}"
+            
+            proxies = {
+                'http': proxy_url,
+                'https': proxy_url
+            }
+            
+            # Test connection
+            response = requests.get("http://httpbin.org/ip", proxies=proxies, timeout=10)
+            response.raise_for_status()
+            
+            ip_data = response.json()
+            messagebox.showinfo("Thành Công", 
+                              f"✅ SOCKS5 Proxy hoạt động tốt!\n\n"
+                              f"🌐 IP hiện tại: {ip_data.get('origin', 'Unknown')}\n"
+                              f"🔗 Proxy: {host}:{port}")
+            
+        except Exception as e:
+            messagebox.showerror("Lỗi", f"❌ SOCKS5 Proxy không hoạt động:\n{e}")
+    
+    def _test_http_proxy(self, host, port, username, password):
+        """
+        Kiểm tra HTTP proxy
+        """
+        try:
+            import requests
+            
+            # Build proxy URL
+            if username and password:
+                proxy_url = f"http://{username}:{password}@{host}:{port}"
+            else:
+                proxy_url = f"http://{host}:{port}"
+            
+            proxies = {
+                'http': proxy_url,
+                'https': proxy_url
+            }
+            
+            # Test connection
+            response = requests.get("http://httpbin.org/ip", proxies=proxies, timeout=10)
+            response.raise_for_status()
+            
+            ip_data = response.json()
+            messagebox.showinfo("Thành Công", 
+                              f"✅ HTTP Proxy hoạt động tốt!\n\n"
+                              f"🌐 IP hiện tại: {ip_data.get('origin', 'Unknown')}\n"
+                              f"🔗 Proxy: {host}:{port}")
+            
+        except Exception as e:
+            messagebox.showerror("Lỗi", f"❌ HTTP Proxy không hoạt động:\n{e}")
+    
+    def _save_proxy_config(self):
+        """
+        Lưu cấu hình proxy
+        """
+        try:
+            proxy_config = {
+                'enabled': self.config_vars['proxy_enabled'].get(),
+                'type': self.config_vars['proxy_type'].get(),
+                'socks5': {
+                    'host': self.config_vars['proxy_host'].get(),
+                    'port': self.config_vars['proxy_port'].get(),
+                    'username': self.config_vars['proxy_username'].get(),
+                    'password': self.config_vars['proxy_password'].get()
+                },
+                'http': {
+                    'host': self.config_vars['proxy_http_host'].get(),
+                    'port': self.config_vars['proxy_http_port'].get(),
+                    'username': self.config_vars['proxy_http_username'].get(),
+                    'password': self.config_vars['proxy_http_password'].get()
+                }
+            }
+            
+            with open('config/proxy_config.json', 'w', encoding='utf-8') as f:
+                json.dump(proxy_config, f, indent=2, ensure_ascii=False)
+            
+            messagebox.showinfo("Thành Công", "💾 Đã lưu cấu hình proxy thành công!")
+            
+        except Exception as e:
+            messagebox.showerror("Lỗi", f"❌ Không thể lưu cấu hình proxy: {e}")
     
     def _create_control_panel(self, parent):
         """
         Tạo panel điều khiển
         """
         control_frame = ttk.Frame(parent)
-        control_frame.grid(row=2, column=0, columnspan=2, pady=(0, 10))
+        control_frame.grid(row=3, column=0, columnspan=2, pady=(0, 10))
         
         # Start/Stop Button
         self.start_button = ttk.Button(control_frame, text="▶️ BẮT ĐẦU WORKFLOW", 
@@ -251,7 +518,7 @@ class WorkflowGUI:
         Tạo panel hiển thị tiến trình
         """
         progress_frame = ttk.LabelFrame(parent, text="📊 TIẾN TRÌNH THỰC HIỆN", padding="10")
-        progress_frame.grid(row=3, column=0, sticky=(tk.W, tk.E, tk.N), padx=(0, 5), pady=(0, 10))
+        progress_frame.grid(row=4, column=0, sticky=(tk.W, tk.E, tk.N), padx=(0, 5), pady=(0, 10))
         progress_frame.columnconfigure(0, weight=1)
         
         # Overall Progress
@@ -286,7 +553,7 @@ class WorkflowGUI:
         Tạo panel hiển thị log
         """
         log_frame = ttk.LabelFrame(parent, text="📝 THÔNG TIN CHI TIẾT", padding="10")
-        log_frame.grid(row=3, column=1, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 10))
+        log_frame.grid(row=4, column=1, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 10))
         log_frame.columnconfigure(0, weight=1)
         log_frame.rowconfigure(1, weight=1)
         
@@ -315,7 +582,7 @@ class WorkflowGUI:
         Tạo panel hiển thị kết quả
         """
         results_frame = ttk.LabelFrame(parent, text="📁 KẾT QUẢ", padding="10")
-        results_frame.grid(row=4, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 10))
+        results_frame.grid(row=5, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 10))
         results_frame.columnconfigure(1, weight=1)
         
         # Output files
@@ -645,6 +912,37 @@ class WorkflowGUI:
             
             if hasattr(config, 'log_level'):
                 self.config_vars['log_level'].set(config.log_level)
+            
+            # Load proxy configuration
+            if hasattr(config, 'proxy_enabled'):
+                self.config_vars['proxy_enabled'].set(getattr(config, 'proxy_enabled', False))
+            
+            if hasattr(config, 'proxy_type'):
+                self.config_vars['proxy_type'].set(getattr(config, 'proxy_type', 'socks5'))
+            
+            if hasattr(config, 'proxy_socks5_host'):
+                self.config_vars['proxy_host'].set(getattr(config, 'proxy_socks5_host', ''))
+            
+            if hasattr(config, 'proxy_socks5_port'):
+                self.config_vars['proxy_port'].set(getattr(config, 'proxy_socks5_port', ''))
+            
+            if hasattr(config, 'proxy_socks5_username'):
+                self.config_vars['proxy_username'].set(getattr(config, 'proxy_socks5_username', ''))
+            
+            if hasattr(config, 'proxy_socks5_password'):
+                self.config_vars['proxy_password'].set(getattr(config, 'proxy_socks5_password', ''))
+            
+            if hasattr(config, 'proxy_http_host'):
+                self.config_vars['proxy_http_host'].set(getattr(config, 'proxy_http_host', ''))
+            
+            if hasattr(config, 'proxy_http_port'):
+                self.config_vars['proxy_http_port'].set(getattr(config, 'proxy_http_port', ''))
+            
+            if hasattr(config, 'proxy_http_username'):
+                self.config_vars['proxy_http_username'].set(getattr(config, 'proxy_http_username', ''))
+            
+            if hasattr(config, 'proxy_http_password'):
+                self.config_vars['proxy_http_password'].set(getattr(config, 'proxy_http_password', ''))
                 
         except Exception as e:
             self.log_queue.put({
@@ -670,6 +968,18 @@ CCCD_BIRTH_YEAR_FROM={self.config_vars['birth_year_from'].get()}
 CCCD_BIRTH_YEAR_TO={self.config_vars['birth_year_to'].get()}
 LOG_LEVEL={self.config_vars['log_level'].get()}
 DEBUG_MODE=false
+
+# Proxy Configuration
+PROXY_ENABLED={str(self.config_vars['proxy_enabled'].get()).lower()}
+PROXY_TYPE={self.config_vars['proxy_type'].get()}
+PROXY_SOCKS5_HOST={self.config_vars['proxy_host'].get()}
+PROXY_SOCKS5_PORT={self.config_vars['proxy_port'].get()}
+PROXY_SOCKS5_USERNAME={self.config_vars['proxy_username'].get()}
+PROXY_SOCKS5_PASSWORD={self.config_vars['proxy_password'].get()}
+PROXY_HTTP_HOST={self.config_vars['proxy_http_host'].get()}
+PROXY_HTTP_PORT={self.config_vars['proxy_http_port'].get()}
+PROXY_HTTP_USERNAME={self.config_vars['proxy_http_username'].get()}
+PROXY_HTTP_PASSWORD={self.config_vars['proxy_http_password'].get()}
 """
             
             with open('.env', 'w', encoding='utf-8') as f:

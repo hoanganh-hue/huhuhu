@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "type": "socks5",
+  "socks5": {
+    "host": "ip.mproxy.vn",
+    "port": "12301",
+    "username": "beba111",
+    "password": "tDV5tkMchYUBMD"
+  },
+  "http": {
+    "host": "",
+    "port": "",
+    "username": "",
+    "password": ""
+  }
+}
